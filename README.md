@@ -5,24 +5,21 @@ the final project for GAME 1303
 # Game Overview
 
 ## Working Title
-placeholder name
+- Desert Project
 
 ## Elevator Pitch
-placeholder pitch
+- the world, the dungeons, even the town placements and enemy locations are all procedural generated to make replayability the biggest factor of the game. Everytime the Player chooses New Game a familiar but new world is generated at random so the player is always thinking of what to do next.
 
 ## Concept
 ### Overview
 
-#### - Genre: *placeholder*
-#### - Target Audience: *placeholder*
-#### - Monetization: *placeholder*
+#### - Genre: *dungeon crawler, rpg*
+#### - Target Audience: *anybody looking to kill time*
 #### - Platform & System Requirements:
-  - ...
-  - ...
-  - ...
-  - ...
+  - Windows Operating System
+  - Unity Game Engine version 2020.x.xf(LTS)
 ### Theme and Setting
-placeholder text
+  - A desert in an unknown land
 
 ## Project Scope
 ### Our Team
