@@ -28,8 +28,8 @@ placeholder text
 ### Our Team
 - Programmer: Edward Cruz
 - Design:
-- art:
-- qa:
+- Art:
+- QA:
 
 ## Locations
   - Inspirations
