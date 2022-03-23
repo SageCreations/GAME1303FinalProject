@@ -1,14 +1,13 @@
-# GAME1303FinalProject
-the final project for GAME 1303
+# The Final Project Proposal for GAME 1303/1304
 
 
 # Game Overview
 
 ## Working Title
-- Desert Project
+- Dungeon Bosses
 
 ## Elevator Pitch
-- the world, the dungeons, even the town placements and enemy locations are all procedural generated to make replayability the biggest factor of the game. Everytime the Player chooses New Game a familiar but new world is generated at random so the player is always thinking of what to do next.
+- Players will need to adapt to different gameplay styles on the fly throughout their progress in the game. For example, the player will traverse a dungeon in a rougue hackNslash style of gameplay and then when they reach the final boss of the dungeon the fight become a turnbased rpg style. Another example would be the player travels through a gauntlet of enemies in a galaga style of gameplay and then the final boss would be similar to a mega man boss. Truly a game with multiple callbacks to various retro gameplay styles
 
 ## Concept
 ### Overview
@@ -19,27 +18,35 @@ the final project for GAME 1303
   - Windows Operating System
   - Unity Game Engine version 2020.x.xf(LTS)
 ### Theme and Setting
-  - A desert in an unknown land
+  - Each "Dugeon" can have its own style
+  - gameplay would probably be level selection oriented from a ui a menu or the player picks a door to go through in a hub world.
+  - 
 
 ## Project Scope
 ### Our Team
 - Programmer: Edward Cruz
-- Design:
-- Art:
-- QA:
+- Design: placeholder
+- Art: placeholder
+- QA: placeholder
 
 ## Locations
-  - Inspirations
-  - in game locales
+  - Inspirations from the team
+  - In game locales will be based off of these inspirations
+  - (This should ensure people on the team are interesested to work on at least a portion of the game)
 ## Story
-  - Turning Point 1
-  - Climax
-  - Themes
-  - Sidequests
+  - I would like to keep it as simple and vague as possible
+  - since the plan is for 3 full levels with dugeon and boss in each, im thinking of having story beats sprinkled at certain sections where gameplay is at a minimum.
+  ### Locations where story should be told
+  - (intro before the player does anything) 
+  - (some excerpt of info on a world at each door in the hub when a player is choosing to go through a door)
+  - (some dialouge or explanation of what needs to be done at the beginning of a dugeon)
+  - (before or after a boss fight in a dugeon)
+  - (after the player comes back from a dugeon to the hub world)
 ## Characters
-  - Protagonist
-  - Antagonist
-  - placeholder
+  - The Player
+  - The player will have a companion that will explain things to the player (dont know what form it will take yet)
+  - Each Boss will be considered a character since they will have dialouge lines
+  - Maybe an npc for shop items (if needed)
 ## Gameplay/Mechanics
   - PlayerController
   - AI Controller
