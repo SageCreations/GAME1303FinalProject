@@ -12,8 +12,10 @@
 ## Concept
 ### Overview
 
-#### - Genre: *dungeon crawler, rpg*
-#### - Target Audience: *anybody looking to kill time*
+#### - Genre: 
+        - dungeon crawler, rpg, etc.
+#### - Target Audience: 
+        - anybody looking to kill time
 #### - Platform & System Requirements:
   - Windows Operating System
   - Unity Game Engine version 2020.x.xf(LTS)
