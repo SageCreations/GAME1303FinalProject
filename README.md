@@ -41,7 +41,7 @@ Proposal for GAME 1303/1304
 
 ## Project Scope
 ### Our Team
-- Programmer: Edward Cruz
+- Programmer: Edward Cruz, placeholder, etc.
 - Level Design: placeholder
 - Sound Design: placeholder
 - Art: placeholder
