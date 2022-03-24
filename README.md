@@ -17,7 +17,7 @@ Proposal for GAME 1303/1304
 <br>
 
 ## Elevator Pitch
-- Players will need to adapt to different gameplay styles on the fly throughout their progress in the game. For example, the player will traverse a dungeon in a rougue hackNslash style of gameplay and then when they reach the final boss of the dungeon the fight become a turnbased rpg style. Another example would be the player travels through a gauntlet of enemies in a galaga style of gameplay and then the final boss would be similar to a mega man boss. Truly a game with multiple callbacks to various retro gameplay styles
+- Players will need to adapt to different gameplay styles on the fly throughout their progress in the game. For example, the player will traverse a dungeon in a rougue hack n slash style of gameplay and then when they reach the final boss of the dungeon the fight become a turnbased rpg style. Another example would be the player travels through a gauntlet of enemies in a galaga style of gameplay and then the final boss would be similar to a mega man boss. Truly a game with multiple callbacks to various retro gameplay styles
 
 <br>
 <br>
