@@ -29,8 +29,8 @@ Proposal for GAME 1303/1304
 #### - Target Audience: 
 - anybody looking to kill time
 #### - Platform & System Requirements:
-- Windows Operating System
-- Unity Game Engine version 2020.x.xf(LTS)
+- Windows Operating System for the game build
+- Game Engine? (Godot would probably give the best flexibility for the team but it can be discussed with the team)
 #### - Theme and Setting:
 - Each "Dugeon" can have its own style (discussed with team)
 - Gameplay would probably be level selection oriented from a ui menu or the player picks a door to go through in a hub world.
