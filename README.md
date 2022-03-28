@@ -1,5 +1,5 @@
 # The Final Project 
-Proposal for GAME 1303/1304
+Proposal for GAME 1303
 <br>
 <br>
 <br>
