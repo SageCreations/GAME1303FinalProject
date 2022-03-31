@@ -30,7 +30,7 @@ Proposal for GAME 1303
 - anybody looking to kill time
 #### - Platform & System Requirements:
 - Windows Operating System for the game build
-- Game Engine? (Godot would probably give the best flexibility for the team but it can be discussed with the team)
+- Godot Game Enigne for Development
 #### - Theme and Setting:
 - Each "Dugeon" can have its own style (discussed with team)
 - Gameplay would probably be level selection oriented from a ui menu or the player picks a door to go through in a hub world.
@@ -42,9 +42,9 @@ Proposal for GAME 1303
 ## Project Scope
 ### Our Team
 - Programmer: Edward Cruz, placeholder, etc.
-- Level Design: placeholder
-- Sound Design: placeholder
-- Art: placeholder
+- Level Design: Darren Zemanek
+- Sound Design: Pablo
+- Art: Colby Sturdy, Lewis Christie
 - QA: placeholder (probably anybody on the team when there is downtime)
 
 <br>
@@ -91,6 +91,7 @@ Proposal for GAME 1303
 ## Levels
   - Tutorial Area / World Hub
   - Level 1 / First Dungeon
+    - Side scroller gameplay, player will have a shotgun 
   - Level 2 / Second Dungeon
   - Level 3 / Third Dungeon
   - Anything else can decided at a later date.
