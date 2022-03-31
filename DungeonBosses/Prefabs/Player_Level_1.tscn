@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Prototyping/DarkGrey_Box64x64.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player_Level_1.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/bullet.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
@@ -11,6 +12,7 @@ radius = 32.0
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
+bullet_scene = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
@@ -21,3 +23,8 @@ shape = SubResource( 1 )
 [node name="circleCollision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 1 )
 shape = SubResource( 2 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
