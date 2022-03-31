@@ -9,7 +9,11 @@ export var jump_force = 1000
 export var gravity = 50
 export var max_fall_speed = 1000
 
+# put the bullet prefab in this variable
 export (PackedScene) var bullet_scene
+# this is the distance added according to the player's position 
+export (int) var bullet_spawn_x = 64
+export (int) var bullet_spawn_y = 0
 
 #onready var anim_player = $AnimationPlayer
 onready var sprite = $Sprite
@@ -17,9 +21,15 @@ onready var sprite = $Sprite
 var y_vel = 0
 var facing_right = false
 var bullet_dir
+var shoot_allowed = true
 
-#function handles movement and jump
-func _physics_process(delta):
+var grounded 
+var hit_ceiling
+
+var renew_walk_sound = true
+
+#function handles all updated values
+func _physics_process(_delta):
 	# left and right movement
 	var move_dir = 0
 	if Input.is_action_pressed("lvl_1_move_right"):
@@ -28,30 +38,49 @@ func _physics_process(delta):
 		move_dir -= 1
 	move_and_slide(Vector2(move_dir * move_speed, y_vel), Vector2(0, -1))
 	
-	# jump
-	var grounded = is_on_floor()
+	grounded = is_on_floor()
+	if (move_dir != 0 && grounded && renew_walk_sound):
+		renew_walk_sound = false
+		$walk_sound.play()
+		$walk_sound_timer.start()
+	
+	
+	
+	# jump code
+	# moved grounded initialization up for walking sound code
+	hit_ceiling = is_on_ceiling()
 	y_vel += gravity
 	if (grounded && Input.is_action_just_pressed("lvl_1_jump")):
 		y_vel = -jump_force
-	if (grounded && y_vel >= 5):
-		y_vel = 5
-	if (y_vel > max_fall_speed):
-		y_vel = max_fall_speed
+		$jump_sound.play()
+	if(!hit_ceiling):
+		if (grounded && y_vel >= 5):
+			y_vel = 5
+		if (y_vel > max_fall_speed):
+			y_vel = max_fall_speed
+	else:
+		y_vel = 1
+	
 	
 	# flip sprite direction, made it direct bullet direction too
 	if (facing_right && move_dir < 0):
 		flip()
 	if (!facing_right && move_dir > 0):
 		flip()
-	
+
+	# shoot code
 	if(facing_right):
 		bullet_dir = 1
 	else:
 		bullet_dir = -1
-	# shoot
-	if (Input.is_action_just_pressed("lvl_1_shoot")):
+
+	if (Input.is_action_just_pressed("lvl_1_shoot") && shoot_allowed == true):
 		shoot(bullet_dir)
+		$shotgun_sound.play()
+		shoot_allowed = false
+		$shot_timer.start()
 	
+	# control animation playing 
 #	if (grounded):
 #		if (move_dir == 0):
 #			play_anim("idle")
@@ -64,9 +93,9 @@ func _physics_process(delta):
 func shoot(dir):
 	var bullet = bullet_scene.instance()
 	if (dir > 0):
-		bullet.setup(Vector2(position.x+32, position.y), rotation, dir)
+		bullet.setup(Vector2(position.x + bullet_spawn_x, position.y + bullet_spawn_y), rotation, dir)
 	else:
-		bullet.setup(Vector2(position.x-64, position.y), rotation, dir)
+		bullet.setup(Vector2(position.x - bullet_spawn_x, position.y + bullet_spawn_y), rotation, dir)
 	get_parent().add_child(bullet)
 	
 # function to flip sprite direction		
@@ -81,3 +110,10 @@ func flip():
 #	if (anim_player.is_playing() && anim_player.current_animation == anim_name):
 #		return
 #	anim_player.play(anim_name)
+
+# timer to reset the shoot_allowed bool
+func _on_shot_timer_timeout():
+	shoot_allowed = true
+
+func _on_walk_sound_timer_timeout():
+	renew_walk_sound = true
