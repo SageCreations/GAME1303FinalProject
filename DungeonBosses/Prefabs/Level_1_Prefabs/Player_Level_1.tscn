@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Sprites/Level_1_Sprites/Player/player_2_0.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Player_Level_1.gd" type="Script" id=2]
-[ext_resource path="res://Prefabs/bullet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/bullet.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/Level_1_Sounds/Shotgun_semi_auto_20220331-155854.wav" type="AudioStream" id=4]
 [ext_resource path="res://Audio/temp_assets/walk.wav" type="AudioStream" id=5]
 [ext_resource path="res://Audio/Level_1_Sounds/350898__cabled-mess__jump-c-08.wav" type="AudioStream" id=6]
@@ -18,15 +18,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "jump",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "walk",
 "speed": 15.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -36,6 +36,7 @@ extents = Vector2( 38, 41.75 )
 radius = 43.0
 
 [node name="Player" type="KinematicBody2D"]
+collision_layer = 2
 script = ExtResource( 2 )
 bullet_scene = ExtResource( 3 )
 bullet_spawn_y = 10

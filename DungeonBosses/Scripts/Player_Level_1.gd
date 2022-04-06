@@ -44,8 +44,6 @@ func _physics_process(_delta):
 		$walk_sound.play()
 		$walk_sound_timer.start()
 	
-	
-	
 	# jump code
 	# moved grounded initialization up for walking sound code
 	hit_ceiling = is_on_ceiling()
@@ -88,6 +86,11 @@ func _physics_process(_delta):
 			anim_sprite.play("walk")
 	else:
 		anim_sprite.play("jump")
+	
+	# used to find enemies in the scene
+	for i in (get_parent().get_node("enemies")).get_children():
+		i.targetBody = self
+		i.isPlayer = true #depending on whether this is your controllable player
 	
 # function for shooting	
 func shoot(dir):
