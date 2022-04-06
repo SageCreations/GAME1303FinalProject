@@ -15,7 +15,7 @@ export (PackedScene) var bullet_scene
 export (int) var bullet_spawn_x = 64
 export (int) var bullet_spawn_y = 0
 
-#onready var anim_player = $AnimationPlayer
+onready var anim_sprite = $AnimatedSprite
 onready var sprite = $Sprite
 
 var y_vel = 0
@@ -81,13 +81,13 @@ func _physics_process(_delta):
 		$shot_timer.start()
 	
 	# control animation playing 
-#	if (grounded):
-#		if (move_dir == 0):
-#			play_anim("idle")
-#		else:
-#			play_anim("walk")
-#	else:
-#		play_anim("jump")
+	if (grounded):
+		if (move_dir == 0):
+			anim_sprite.play("idle")
+		else:
+			anim_sprite.play("walk")
+	else:
+		anim_sprite.play("jump")
 	
 # function for shooting	
 func shoot(dir):
@@ -101,7 +101,7 @@ func shoot(dir):
 # function to flip sprite direction		
 func flip():
 	facing_right = !facing_right
-	sprite.flip_h = !sprite.flip_h
+	anim_sprite.flip_h = !anim_sprite.flip_h
 	
 	
 # function to deal with player run animation

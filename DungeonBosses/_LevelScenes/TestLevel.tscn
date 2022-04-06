@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Sprites/Prototyping/LightGrey_Box64x64.png" type="Texture" id=1]
 [ext_resource path="res://Prefabs/Player_Level_1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Level_1_Sounds/bg_music.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 31.5 )
@@ -242,3 +243,8 @@ shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 477, 226 )
+
+[node name="Game_Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -10.0
+autoplay = true
