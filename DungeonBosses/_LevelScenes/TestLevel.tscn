@@ -126,5 +126,3 @@ tile_data = PoolIntArray( -196580, 1, 0, -196579, 1, 0, -196578, 1, 0, -196577, 
 
 [node name="mover_type" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1082, 290 )
-move_to = Vector2( 192, 0 )
-speed = 100
