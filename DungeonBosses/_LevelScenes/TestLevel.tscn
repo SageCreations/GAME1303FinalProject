@@ -106,8 +106,147 @@ points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
 
 [node name="test" type="Node2D"]
 
+
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 477, 226 )
+
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground6/StaticBody2D"]
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground7" type="Sprite" parent="ground assets"]
+position = Vector2( 897, 341 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground7"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground7/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground11" type="Sprite" parent="ground assets"]
+position = Vector2( 672, 191 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground11"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground11/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground12" type="Sprite" parent="ground assets"]
+position = Vector2( 736, 191 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground12"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground12/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground13" type="Sprite" parent="ground assets"]
+position = Vector2( 800, 191 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground13"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground13/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground14" type="Sprite" parent="ground assets"]
+position = Vector2( 349, 191 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground14"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground14/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground15" type="Sprite" parent="ground assets"]
+position = Vector2( 284, 191 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground15"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground15/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground16" type="Sprite" parent="ground assets"]
+position = Vector2( 448, 74 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground16"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground16/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground17" type="Sprite" parent="ground assets"]
+position = Vector2( 512, 74 )
+scale = Vector2( 1, 0.34375 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground17"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground17/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground8"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground8/StaticBody2D"]
+visible = false
+position = Vector2( 32, 32.5 )
+shape = SubResource( 5 )
+
+[node name="ground9" type="Sprite" parent="ground assets"]
+position = Vector2( 769, 341 )
+texture = ExtResource( 1 )
+centered = false
+
+[node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground9"]
+visible = false
+
 
 [node name="Game_Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
@@ -124,7 +263,9 @@ tile_set = SubResource( 2 )
 format = 1
 tile_data = PoolIntArray( -196580, 1, 0, -196579, 1, 0, -196578, 1, 0, -196577, 1, 0, -196576, 1, 0, -196575, 1, 0, -196574, 1, 0, -196573, 1, 0, -196572, 1, 0, -196571, 3, 0, -131035, 2, 0, -131034, 3, 0, -131030, 2, 0, -65499, 2, 0, -65494, 2, 0, 37, 2, 0, 41, 0, 0, 42, 2, 0, 65573, 2, 0, 65578, 2, 0, 131109, 2, 0, 131110, 3, 0, 131114, 2, 0, 196632, 0, 0, 196633, 1, 0, 196634, 1, 0, 196635, 1, 0, 196636, 1, 0, 196637, 3, 0, 196650, 2, 0, 262168, 2, 0, 262169, 2, 0, 262170, 2, 0, 262171, 2, 0, 262172, 2, 0, 262173, 2, 0, 262185, 0, 0, 262186, 2, 0, 327683, 0, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 327690, 1, 0, 327691, 1, 0, 327692, 1, 0, 327693, 1, 0, 327694, 1, 0, 327695, 1, 0, 327696, 1, 0, 327697, 1, 0, 327698, 1, 0, 327699, 1, 0, 327700, 1, 0, 327701, 1, 0, 327702, 1, 0, 327703, 1, 0, 327704, 2, 0, 327705, 2, 0, 327706, 2, 0, 327707, 2, 0, 327708, 2, 0, 327709, 2, 0, 327710, 1, 0, 327711, 1, 0, 327712, 1, 0, 327713, 1, 0, 327714, 1, 0, 327715, 1, 0, 327716, 1, 0, 327717, 1, 0, 327718, 1, 0, 327719, 1, 0, 327720, 1, 0, 327721, 1, 0, 327722, 2, 0 )
 
+
 [node name="mover_type" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1082, 290 )
 move_to = Vector2( 192, 0 )
 speed = 100
+

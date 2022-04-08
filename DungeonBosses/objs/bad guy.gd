@@ -62,9 +62,11 @@ func canSee():
 
 func canJump():
 	if is_on_floor() and $jumpcasts/jumpcast.is_colliding() and not $jumpcasts/jumpmax.is_colliding() and not $jumpcasts/jumpcast.get_collider().name == "Player":
+
 		return true
 	else:
 		return false
+
 
 
 func _physics_process(delta):

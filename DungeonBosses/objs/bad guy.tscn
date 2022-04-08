@@ -6,6 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 64 )
 
+
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 512, 256 )
 
@@ -13,8 +14,10 @@ extents = Vector2( 512, 256 )
 collision_layer = 4
 script = ExtResource( 1 )
 SpriteTex = ExtResource( 2 )
+
 JUMP_HEIGHT = 1000
 jumpmaxoffset = 1000.0
+
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -32.0
@@ -39,7 +42,9 @@ one_shot = true
 position = Vector2( 0, -64 )
 
 [node name="jumpcast" type="RayCast2D" parent="jumpcasts"]
+
 position = Vector2( 35, 118 )
+
 enabled = true
 cast_to = Vector2( 64, 0 )
 
@@ -54,8 +59,10 @@ cast_to = Vector2( 0, 0 )
 collision_mask = 3
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+
 visible = false
 position = Vector2( 2.67029e-05, -1.52588e-05 )
+
 scale = Vector2( 47.7479, 37.7154 )
 
 [node name="idletimer" type="Timer" parent="."]
