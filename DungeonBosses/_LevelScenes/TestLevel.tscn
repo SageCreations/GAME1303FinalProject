@@ -78,18 +78,15 @@ position = Vector2( 32, 32.5 )
 shape = SubResource( 5 )
 
 [node name="ground6" type="Sprite" parent="ground assets"]
-<<<<<<< Updated upstream
 position = Vector2( 641, 341 )
-=======
-position = Vector2( 1926, 190 )
-scale = Vector2( 10.2188, 2.35938 )
->>>>>>> Stashed changes
 texture = ExtResource( 1 )
 centered = false
 
 [node name="StaticBody2D" type="StaticBody2D" parent="ground assets/ground6"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ground assets/ground6/StaticBody2D"]
+visible = false
 position = Vector2( 32, 32.5 )
 shape = SubResource( 5 )
 
@@ -205,12 +202,7 @@ position = Vector2( 32, 32.5 )
 shape = SubResource( 5 )
 
 [node name="ground8" type="Sprite" parent="ground assets"]
-<<<<<<< Updated upstream
 position = Vector2( 833, 341 )
-=======
-position = Vector2( 2404, 80 )
-scale = Vector2( 9.79688, 1.73438 )
->>>>>>> Stashed changes
 texture = ExtResource( 1 )
 centered = false
 
@@ -250,22 +242,3 @@ shape = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 477, 226 )
-<<<<<<< Updated upstream
-=======
-
-[node name="Game_Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = -10.0
-autoplay = true
-
-[node name="enemies" type="Node2D" parent="."]
-
-[node name="bad guy" parent="enemies" instance=ExtResource( 4 )]
-position = Vector2( 1676, 249 )
-
-[node name="bad guy2" parent="enemies" instance=ExtResource( 4 )]
-position = Vector2( 1519, -161 )
-
-[node name="bad guy3" parent="enemies" instance=ExtResource( 4 )]
-position = Vector2( 981, -71 )
->>>>>>> Stashed changes
