@@ -3,6 +3,13 @@ extends KinematicBody2D
 # https://www.youtube.com/watch?v=NScngW8vxK8
 # code mostly from the video tutorial above.
 
+signal hit
+signal health_updated(health)
+signal killed()
+
+export (int) var max_health = 3
+onready var health = max_health
+
 # some consts made public so they can be edited in the editor
 export var move_speed = 500
 export var jump_force = 1000
@@ -15,7 +22,7 @@ export (PackedScene) var bullet_scene
 export (int) var bullet_spawn_x = 64
 export (int) var bullet_spawn_y = 0
 
-#onready var anim_player = $AnimationPlayer
+onready var anim_sprite = $AnimatedSprite
 onready var sprite = $Sprite
 
 var y_vel = 0
@@ -27,6 +34,9 @@ var grounded
 var hit_ceiling
 
 var renew_walk_sound = true
+
+onready var invuln_timer = $invuln_timer
+onready var effects_anim = $effects_animation
 
 #function handles all updated values
 func _physics_process(_delta):
@@ -43,8 +53,6 @@ func _physics_process(_delta):
 		renew_walk_sound = false
 		$walk_sound.play()
 		$walk_sound_timer.start()
-	
-	
 	
 	# jump code
 	# moved grounded initialization up for walking sound code
@@ -81,13 +89,14 @@ func _physics_process(_delta):
 		$shot_timer.start()
 	
 	# control animation playing 
-#	if (grounded):
-#		if (move_dir == 0):
-#			play_anim("idle")
-#		else:
-#			play_anim("walk")
-#	else:
-#		play_anim("jump")
+	if (grounded):
+		if (move_dir == 0):
+			anim_sprite.play("idle")
+		else:
+			anim_sprite.play("walk")
+	else:
+		anim_sprite.play("jump")
+	
 	
 # function for shooting	
 func shoot(dir):
@@ -101,7 +110,7 @@ func shoot(dir):
 # function to flip sprite direction		
 func flip():
 	facing_right = !facing_right
-	sprite.flip_h = !sprite.flip_h
+	anim_sprite.flip_h = !anim_sprite.flip_h
 	
 	
 # function to deal with player run animation
@@ -117,3 +126,33 @@ func _on_shot_timer_timeout():
 
 func _on_walk_sound_timer_timeout():
 	renew_walk_sound = true
+	
+	
+func damage(amount):
+	if (invuln_timer.is_stopped()):
+		invuln_timer.start()
+		_set_health(health - amount)
+		effects_anim.play("damage")
+		effects_anim.queue("invuln")
+	
+func kill():
+	pass
+	
+func _set_health(value):
+	var prev_health = health
+	health = clamp(value, 0, max_health)
+	if (health != prev_health):
+		emit_signal("health_updated", health) 
+		if (health == 0):
+			kill()
+
+
+func _on_invuln_timer_timeout():
+	effects_anim.play("rest")
+
+
+
+
+
+func _on_Area2D_body_entered(body):
+	body
