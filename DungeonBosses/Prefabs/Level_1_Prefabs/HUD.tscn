@@ -1,0 +1,36 @@
+[gd_scene format=2]
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enable = true
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer"]
+margin_left = -196.0
+margin_top = -150.0
+margin_right = 200.0
+margin_bottom = -1.0
+text = "Game Over"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+margin_left = -509.0
+margin_top = -295.0
+margin_right = -356.0
+margin_bottom = -253.0
+text = "Score: 0"
+align = 1
+valign = 1
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer"]
+margin_left = 354.0
+margin_top = -297.0
+margin_right = 506.0
+margin_bottom = -254.0
+text = "Health: 3"
+align = 1
+valign = 1
