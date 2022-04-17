@@ -1,0 +1,219 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Audio/Level_1_Sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=1]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/Enemies/enemy_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_2.png" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Node2D
+
+
+# mover variabels
+export var distance_movement = 192
+var move_to = Vector2.RIGHT * distance_movement
+export var speed = 200
+
+export var min_idle_time = 0.5
+export var max_idle_time = 1.2
+
+var idle_duration = rand_range(min_idle_time, max_idle_time)
+
+
+onready var mover = $shooter_mover
+onready var tween = $shooter_mover/Tween
+onready var anim_sprite = $shooter_mover/AnimatedSprite
+
+var walk_dir = 0
+var walk_allowed = true
+
+
+# shooter variables
+var in_range = false
+export (PackedScene) var bullet_scene
+
+export var bullet_spawn_x = 32
+export var bullet_spawn_y = 32
+
+var shoot_dir = 0
+var shoot_allowed = true
+
+export var min_shoot_time = 1.0
+export var max_shoot_time = 2.0
+
+var is_dead = false
+
+onready var player = get_parent().get_parent().get_node(\"Player\")
+
+
+
+func _ready():
+	_init_tween()
+	
+	
+
+func _process(delta):
+	if (in_range):
+			
+		if (player.position.x < position.x):
+			shoot_dir = -1
+		else:
+			shoot_dir = 1
+				
+		if (shoot_allowed && !is_dead):
+			shoot(shoot_dir)
+			
+	
+#	if (!is_dead && walk_allowed):
+#		randomize()
+#		var timer = rand_range(min_idle_time, max_idle_time)
+#		$shooter_mover/walk.start(timer)
+#	else:
+#		randomize()
+#		var timer = rand_range(min_idle_time, max_idle_time)
+#		$shooter_mover/walk.start(timer)
+
+
+
+func _init_tween():
+	var duration = move_to.length() / float(speed)
+	randomize()
+	idle_duration = rand_range(min_idle_time, max_idle_time)
+	tween.interpolate_property(mover, \"position\", Vector2.ZERO, move_to, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, idle_duration)
+	randomize()
+	idle_duration = rand_range(min_idle_time, max_idle_time)
+	tween.interpolate_property(mover, \"position\", move_to, Vector2.ZERO, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, duration + idle_duration * 2)
+	tween.start()
+
+
+func shoot(dir):
+	var bullet = bullet_scene.instance()
+	shoot_allowed = false
+	randomize()
+	var time = rand_range(min_shoot_time, max_shoot_time)
+	$shooter_mover/shoot_ready.start(time)
+	if (dir > 0):
+		bullet.setup(Vector2(position.x + bullet_spawn_x, position.y + bullet_spawn_y), rotation, dir)
+	else:
+		bullet.setup(Vector2(position.x - bullet_spawn_x, position.y + bullet_spawn_y), rotation, dir)
+	get_parent().add_child(bullet)
+
+
+func _on_Area2D_body_entered(body):
+	if (body.get_name() == \"bullet\"):
+		print(\"bullet entered\")
+		$shooter_mover/death_sound.play()
+		$shooter_mover/CollisionShape2D.set_deferred(\"disabled\", true)
+		$shooter_mover/Area2D/CollisionShape2D.set_deferred(\"disabled\", true)
+		hide()
+		is_dead = true
+		body.queue_free()
+		$shooter_mover/death.start()
+		
+
+
+func _on_death_timeout():
+	queue_free()
+	
+	
+
+
+func _on_shoot_ready_timeout():
+	shoot_allowed = true
+
+
+
+func _on_VisibilityNotifier2D_screen_entered():
+	in_range = true
+	print(\"in_range was set to true\")
+
+
+func _on_VisibilityNotifier2D_screen_exited():
+	in_range = false
+	print(\"in_range was set to false\")
+
+
+
+func _on_walk_timeout():
+	walk_allowed = true
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 20.5, 15 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 20.5, 15 )
+
+[node name="shooter_mover_type" type="Node2D"]
+script = SubResource( 4 )
+bullet_scene = ExtResource( 2 )
+bullet_spawn_x = 0
+bullet_spawn_y = 0
+
+[node name="shooter_mover" type="RigidBody2D" parent="."]
+mode = 3
+mass = 0.01
+
+[node name="Sprite" type="Sprite" parent="shooter_mover"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shooter_mover"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 1 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="shooter_mover"]
+frames = SubResource( 3 )
+animation = "idle"
+
+[node name="Area2D" type="Area2D" parent="shooter_mover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shooter_mover/Area2D"]
+position = Vector2( -0.5, 0 )
+shape = SubResource( 2 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="death" type="Timer" parent="shooter_mover"]
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="shooter_mover"]
+stream = ExtResource( 1 )
+volume_db = 10.0
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="shooter_mover"]
+position = Vector2( 1.87755e-06, -7.62939e-06 )
+scale = Vector2( 14.2, 5.1 )
+
+[node name="shoot_ready" type="Timer" parent="shooter_mover"]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="shooter_mover"]
+repeat = true
+playback_process_mode = 0
+playback/repeat = true
+
+[node name="walk" type="Timer" parent="shooter_mover"]
+one_shot = true
+
+[connection signal="body_entered" from="shooter_mover/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="shooter_mover/death" to="." method="_on_death_timeout"]
+[connection signal="screen_entered" from="shooter_mover/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="shooter_mover/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="shooter_mover/shoot_ready" to="." method="_on_shoot_ready_timeout"]
+[connection signal="timeout" from="shooter_mover/walk" to="." method="_on_walk_timeout"]

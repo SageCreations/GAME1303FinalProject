@@ -23,8 +23,3 @@ func _physics_process(_delta):
 		queue_free()
 
 
-
-func _on_bullet_body_entered(body):
-	#if(body):
-		#queue_free()
-	pass

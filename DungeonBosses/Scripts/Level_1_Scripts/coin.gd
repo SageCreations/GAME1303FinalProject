@@ -6,8 +6,8 @@ func _on_Area2D_body_entered(body):
 		$coin_pickup.play()
 		
 		hide()
-		$coin/Area2D/CollisionShape2D.disabled = true
-		$coin/CollisionShape2D.disabled = true
+		$coin/Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$coin/CollisionShape2D.set_deferred("disabled", true)
 		$despawn.start()
 	
 func _on_despawn_timeout():

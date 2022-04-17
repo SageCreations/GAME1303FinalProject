@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/Level_1_Sprites/greenCrystal.png" type="Texture" id=1]
-[ext_resource path="res://Prefabs/Level_1_Prefabs/collectables/health_box.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Level_1_Scripts/health_box.gd" type="Script" id=2]
 [ext_resource path="res://Audio/Level_1_Sounds/heatlh_pick_up.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]

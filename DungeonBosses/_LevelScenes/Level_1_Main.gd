@@ -1,17 +1,16 @@
 extends Node2D
 
-var score
 
 func _ready():
 	randomize()
 	
 func game_over():
-	score = 0
+	#score = 0
 	#$Player/HUD/MessageLabel.text = "Game Over"
 	#$Player/HUD/MessageLabel.show_message()
-	$HUD.show_game_over()
+	#$HUD.show_game_over()
 	$Game_Music.stop()
-	$HUD.update_score(score)
+	#$HUD.update_score(score)
 	$Death_Sound.play()
 
 

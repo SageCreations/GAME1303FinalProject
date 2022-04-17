@@ -5,8 +5,8 @@ func _on_Area2D_body_entered(body):
 		print("player entered health_box")
 		$health_pickup_sound.play()
 		hide()
-		$health_box/Area2D/CollisionShape2D.disabled = true
-		$health_box/CollisionShape2D.disabled = true
+		$health_box/Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$health_box/CollisionShape2D.set_deferred("disabled", true)
 		$despawn.start()
 	
 func _on_despawn_timeout():

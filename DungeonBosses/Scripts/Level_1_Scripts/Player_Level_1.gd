@@ -28,6 +28,12 @@ export (int) var bullet_spawn_y = 0
 onready var anim_sprite = $AnimatedSprite
 onready var sprite = $Sprite
 
+onready var game_over_label = $HUD/CanvasLayer/MessageLabel
+onready var continue_button = $HUD/CanvasLayer/continue_button
+onready var quit_button = $HUD/CanvasLayer/quit_button
+onready var health_label = $HUD/CanvasLayer/HealthLabel
+onready var coin_label = $HUD/CanvasLayer/ScoreLabel
+
 var y_vel = 0
 var facing_right = false
 var bullet_dir
@@ -42,6 +48,17 @@ onready var invuln_timer = $invuln_timer
 onready var effects_anim = $effects_animation
 
 var is_dead = false
+
+var amount_of_coins = 0
+
+func _ready():
+	game_over_label.visible = false
+	continue_button.visible = false
+	quit_button.visible = false
+	health_label.text = "Health: " + str(health)
+	coin_label.text = "Coins: " + str(amount_of_coins)
+	
+	
 
 #function handles all updated values
 func _physics_process(_delta):
@@ -103,8 +120,6 @@ func _physics_process(_delta):
 		else:
 			anim_sprite.play("jump")
 	
-	else:
-		start_over()
 	
 	
 # function for shooting	
@@ -139,6 +154,7 @@ func _on_walk_sound_timer_timeout():
 func heal(amount):
 	if (invuln_timer.is_stopped()):
 		health += amount
+		health_label.text = "Health: " + str(health)
 		invuln_timer.start()
 		effects_anim.play("heal")
 		effects_anim.queue("invuln")
@@ -147,14 +163,18 @@ func damage(amount):
 	if (invuln_timer.is_stopped()):
 		invuln_timer.start()
 		health -= amount
+		health_label.text = "Health: " + str(health)
 		if (health <= 0):
 			kill()
 		effects_anim.play("damage")
 		effects_anim.queue("invuln")
 	
 func kill():
+	$Area2D/CollisionShape2D.set_deferred("disabled", true)
+	$rectCollision.set_deferred("disabled", true)
 	hide()
-	start_over()
+	is_dead = true
+	game_over()
 
 
 func _on_invuln_timer_timeout():
@@ -164,7 +184,29 @@ func _on_invuln_timer_timeout():
 func start(pos):
 	position = pos
 	show()
-	#$Area2D/CollisionShape2D.disabled = false
+
+
+
+func game_over():
+	
+	game_over_label.visible = true
+	continue_button.visible = true
+	quit_button.visible = true
+	
+	continue_button.connect("pressed", self, "start_over")
+	quit_button.connect("pressed", self, "pass")
+
+
+
+func start_over():
+	#health = start_health
+	#start(start_level_position)
+	#game_over_label.visible = false
+	#continue_button.visible = false
+	#quit_button.visible = false
+	#is_dead = false
+	get_tree().reload_current_scene()
+	
 
 
 func _on_Area2D_body_entered(body):
@@ -185,6 +227,7 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "enemy_bullet"):
 		print("bullet from shooter type enemy entered")
+		body.queue_free()
 		damage(1)
 	elif (body.get_name() == "spikes"):
 		print("player got hit by spikes")
@@ -204,6 +247,8 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "coin"):
 		# update coin counter
+		amount_of_coins += 1
+		coin_label.text = "Coins: " + str(amount_of_coins)
 		print("player picked up a coin")
 		
 		
@@ -216,7 +261,6 @@ func _on_Area2D_body_entered(body):
 		spawn_point = body.get_parent().position       # .get_global_position()
 	else: pass
 	
-func start_over():
-	health = start_health
-	start(start_level_position)
+
+	
 	
