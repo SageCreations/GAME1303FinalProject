@@ -1,43 +1,60 @@
-extends Node2D
+extends KinematicBody2D
 
+export var distance_from_origin = 200
+export var move_speed = 100
 
+var dir = 1
+var velocity = Vector2()
 
-export var distance_movement = 192
-var move_to = Vector2.UP * distance_movement
-export var speed = 200
+export var min_idle_time = 1.0
+export var max_idle_time = 1.5
 
-export var min_idle_time = 0.5
-export var max_idle_time = 1.2
+var floor_normal = Vector2.UP
 
 var idle_duration = rand_range(min_idle_time, max_idle_time)
 
-onready var flyer = $flyer
-onready var tween = $Tween
+onready var start_y_pos = position.y
 
-func _ready():
-	_init_tween()
+var switch_dir = true
+
+
+func _process(delta):
+	if (dir == 1 && position.y < start_y_pos + distance_from_origin):
+		velocity.y = move_speed * dir
+		print("down")
+	elif(dir == -1 && position.y > start_y_pos - distance_from_origin):
+		velocity.y = move_speed * dir
+		print("up")
+	else:
+		velocity.y = 0
+		if (switch_dir):
+			switch_dir = false
+			randomize()
+			idle_duration = rand_range(min_idle_time, max_idle_time)
+			$idle_timer.start(idle_duration)
+		
+	move_and_slide(Vector2(0, velocity.y), Vector2(0, dir))
 	
-func _init_tween():
-	var duration = move_to.length() / float(speed)
-	randomize()
-	idle_duration = rand_range(min_idle_time, max_idle_time)
-	tween.interpolate_property(flyer, "position", Vector2.ZERO, move_to, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, idle_duration)
-	randomize()
-	idle_duration = rand_range(min_idle_time, max_idle_time)
-	tween.interpolate_property(flyer, "position", move_to, Vector2.ZERO, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, duration + idle_duration * 2)
-	tween.start()
 
 
 func _on_Area2D_body_entered(body):
 	if (body.get_name() == "bullet"):
 		print("bullet entered")
-		$flyer/death_sound.play()
+		$death_sound.play()
 		hide()
 		body.queue_free()
-		$flyer/CollisionShape2D.set_deferred("disabled", true)
-		$flyer/Area2D/CollisionShape2D.set_deferred("disabled", true)
-		$flyer/death.start()
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$death.start()
 
 
 func _on_death_timeout():
 	queue_free()
+
+
+func _on_idle_timer_timeout():
+	
+	dir = dir * -1
+	print(str(dir))
+	switch_dir = true
+	

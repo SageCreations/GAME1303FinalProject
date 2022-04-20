@@ -28,6 +28,7 @@ height = 14.0
 
 [node name="mover_type" type="Node2D"]
 light_mask = 2
+scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
 
 [node name="mover" type="KinematicBody2D" parent="."]
@@ -58,10 +59,10 @@ volume_db = 10.0
 wait_time = 0.2
 one_shot = true
 
-[node name="Tween" type="Tween" parent="."]
-repeat = true
-playback_process_mode = 0
-playback/repeat = true
+[node name="RayCast2D" type="RayCast2D" parent="mover"]
+position = Vector2( 16, 0 )
+enabled = true
+cast_to = Vector2( 0, 24 )
 
 [connection signal="body_entered" from="mover/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="mover/death" to="." method="_on_death_timeout"]

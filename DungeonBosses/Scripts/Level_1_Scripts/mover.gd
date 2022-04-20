@@ -1,37 +1,37 @@
 extends Node2D
 
-
-export var distance_movement = 192
-var move_to = Vector2.RIGHT * distance_movement
-export var speed = 200
-
+export var move_speed = 200
+export var gravity = 50
 export var min_idle_time = 0.5
 export var max_idle_time = 1.2
 
 var idle_duration = rand_range(min_idle_time, max_idle_time)
 
+var velocity = Vector2()
 
-onready var mover = $mover
-onready var tween = $Tween
-onready var anim_sprite = $mover/AnimatedSprite
+var dir = 1
 
 
-func _ready():
-	_init_tween()
-	anim_sprite.play("walk")
+func _process(delta):
+	velocity.x = move_speed * dir
 	
-
-func _init_tween():
-	var duration = move_to.length() / float(speed)
-	randomize()
-	idle_duration = rand_range(min_idle_time, max_idle_time)
-	tween.interpolate_property(mover, "position", Vector2.ZERO, move_to, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, idle_duration)
-	randomize()
-	idle_duration = rand_range(min_idle_time, max_idle_time)
-	tween.interpolate_property(mover, "position", move_to, Vector2.ZERO, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, duration + idle_duration * 2)
-	tween.start()
-
-
+	if (dir == 1):
+		$mover/AnimatedSprite.flip_h = false
+	else:
+		$mover/AnimatedSprite.flip_h = true
+	
+	$mover/AnimatedSprite.play("walk")
+	velocity.y += gravity
+	
+	$mover.move_and_slide(Vector2(velocity.x, velocity.y), Vector2(0, -1))
+	
+	if ($mover.is_on_wall()):
+		dir = dir * -1
+		$mover/RayCast2D.position.x *= -1
+	
+	if ($mover/RayCast2D.is_colliding() == false):
+		dir = dir * -1
+		$mover/RayCast2D.position.x *= -1
 
 func _on_Area2D_body_entered(body):
 	if (body.get_name() == "bullet"):
