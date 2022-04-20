@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scripts/Level_1_Scripts/diagonal_phasable_platform.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Prototyping/LightGrey_Box64x64.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 102, 11 )
+
+[node name="diagonal_phasabale_platform" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "edit the X and Y variables for \"Move To\", it decides the distance in pixels and the direction with pos or neg sign. pos Y is downward and pos X is to the right."
+}
+
+[node name="platform" type="KinematicBody2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="platform"]
+scale = Vector2( 3.21562, 0.34375 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="Tween" type="Tween" parent="."]
+repeat = true
+playback/repeat = true

@@ -1,6 +1,7 @@
 extends Node2D
 
 export var move_speed = 200
+export var distance_from_origin = 200
 export var gravity = 50
 export var min_idle_time = 0.5
 export var max_idle_time = 1.2
@@ -10,15 +11,22 @@ var idle_duration = rand_range(min_idle_time, max_idle_time)
 var velocity = Vector2()
 
 var dir = 1
+onready var start_x_pos = $mover.position.x
+
 
 
 func _process(delta):
-	velocity.x = move_speed * dir
-	
-	if (dir == 1):
+	if (dir == 1 && $mover.position.x < start_x_pos + distance_from_origin):
+		velocity.x = move_speed * dir
 		$mover/AnimatedSprite.flip_h = false
-	else:
+	elif(dir == -1 && $mover.position.x > start_x_pos - distance_from_origin):
+		velocity.x = move_speed * dir
 		$mover/AnimatedSprite.flip_h = true
+	else:
+		print("something")
+		dir = dir * -1
+		$mover/RayCast2D.position.x *= -1
+	
 	
 	$mover/AnimatedSprite.play("walk")
 	velocity.y += gravity
@@ -26,10 +34,12 @@ func _process(delta):
 	$mover.move_and_slide(Vector2(velocity.x, velocity.y), Vector2(0, -1))
 	
 	if ($mover.is_on_wall()):
+		print("direction switch from wall collision")
 		dir = dir * -1
 		$mover/RayCast2D.position.x *= -1
 	
 	if ($mover/RayCast2D.is_colliding() == false):
+		print("direction switch from ledge")
 		dir = dir * -1
 		$mover/RayCast2D.position.x *= -1
 

@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends KinematicBody2D
 
 export (float) var speed = 20.0
 var start_pos

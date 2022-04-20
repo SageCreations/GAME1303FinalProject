@@ -21,10 +21,8 @@ var switch_dir = true
 func _process(delta):
 	if (dir == 1 && position.y < start_y_pos + distance_from_origin):
 		velocity.y = move_speed * dir
-		print("down")
 	elif(dir == -1 && position.y > start_y_pos - distance_from_origin):
 		velocity.y = move_speed * dir
-		print("up")
 	else:
 		velocity.y = 0
 		if (switch_dir):
@@ -55,6 +53,5 @@ func _on_death_timeout():
 func _on_idle_timer_timeout():
 	
 	dir = dir * -1
-	print(str(dir))
 	switch_dir = true
 	

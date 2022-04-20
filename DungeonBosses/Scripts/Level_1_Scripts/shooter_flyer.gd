@@ -39,10 +39,8 @@ onready var player = get_parent().get_parent().get_node("Player")
 func _process(delta):
 	if (dir == 1 && position.y < start_y_pos + distance_from_origin):
 		velocity.y = move_speed * dir
-		print("down")
 	elif(dir == -1 && position.y > start_y_pos - distance_from_origin):
 		velocity.y = move_speed * dir
-		print("up")
 	else:
 		velocity.y = 0
 		if (switch_dir):
