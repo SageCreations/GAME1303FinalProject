@@ -23,7 +23,6 @@ func _process(delta):
 		velocity.x = move_speed * dir
 		$mover/AnimatedSprite.flip_h = true
 	else:
-		print("something")
 		dir = dir * -1
 		$mover/RayCast2D.position.x *= -1
 	

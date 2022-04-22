@@ -3,7 +3,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 513.25, 11.5 )
 
-[node name="Hole_Node" type="Node2D"]
+[node name="hole_node" type="Node2D"]
 
 [node name="hole" type="KinematicBody2D" parent="."]
 

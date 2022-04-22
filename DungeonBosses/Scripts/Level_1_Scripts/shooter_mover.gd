@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 
 # mover variabels
+export var distance_from_origin = 200
 export var move_speed = 200
 export var gravity = 50
 export var min_idle_time = 0.5
@@ -28,17 +29,21 @@ export var max_shoot_time = 2.0
 
 var is_dead = false
 
-onready var player = get_parent().get_parent().get_node("Player")
+onready var player = get_parent().get_parent().get_parent().get_node("Player")
 #onready var player = get_parent().get_tree().get_root().get_node("Player")
-	
+
+onready var start_x_pos = position.x
 
 func _process(delta):
-	velocity.x = move_speed * dir
-	
-	if (dir == 1):
+	if (dir == 1 && position.x < start_x_pos + distance_from_origin):
+		velocity.x = move_speed * dir
 		$AnimatedSprite.flip_h = false
-	else:
+	elif(dir == -1 && position.x > start_x_pos - distance_from_origin):
+		velocity.x = move_speed * dir
 		$AnimatedSprite.flip_h = true
+	else:
+		dir = dir * -1
+		$RayCast2D.position.x *= -1
 		
 	
 	$AnimatedSprite.play("walk")
@@ -56,7 +61,7 @@ func _process(delta):
 		
 	if (in_range):
 			#problem might be from this block here
-		if (player.position.x < position.x):
+		if (player.position.x < get_parent().position.x):
 			shoot_dir = -1
 		else:
 			shoot_dir = 1
@@ -79,6 +84,7 @@ func shoot(player_dir):
 	else:
 		bullet.setup(Vector2(position.x - bullet_spawn_x, position.y + bullet_spawn_y), rotation, player_dir)
 	get_parent().add_child(bullet)
+	print("shoot")
 
 
 func _on_Area2D_body_entered(body):

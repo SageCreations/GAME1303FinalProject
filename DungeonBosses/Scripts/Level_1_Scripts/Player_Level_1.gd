@@ -231,6 +231,8 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "spikes"):
 		print("player got hit by spikes")
+#		if (health > 0):
+#			position = spawn_point
 		damage(1)
 	elif (body.get_name() == "lava"):
 		print("player fell in lava")
@@ -239,6 +241,9 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "falling_spike"):
 		print("player got hit by a falling spike")
+		damage(1)
+	elif (body.get_name() == "fire_ball"):
+		print("player got hit by a fire_ball")
 		damage(1)
 	elif (body.get_name() == "hole"):
 		print("player fell in hole")
@@ -259,7 +264,8 @@ func _on_Area2D_body_entered(body):
 	elif (body.get_name() == "checkpoint"):
 		print("checkpoint space entered")
 		spawn_point = body.get_parent().position       # .get_global_position()
-	else: pass
+	else: 
+		print("Something strange entered the player; Object: " + str(body))
 	
 
 	

@@ -10,8 +10,6 @@ var velocity = Vector2()
 export var min_idle_time = 1.0
 export var max_idle_time = 1.5
 
-var floor_normal = Vector2.UP
-
 var idle_duration = rand_range(min_idle_time, max_idle_time)
 
 onready var start_y_pos = position.y
@@ -23,7 +21,7 @@ var in_range = false
 export (PackedScene) var bullet_scene
 
 export var bullet_spawn_x = 32
-export var bullet_spawn_y = 32
+export var bullet_spawn_y = 0
 
 var shoot_dir = 0
 var shoot_allowed = true
@@ -33,7 +31,10 @@ export var max_shoot_time = 2.0
 
 var is_dead = false
 
-onready var player = get_parent().get_parent().get_node("Player")
+onready var player = get_parent().get_parent().get_parent().get_node("Player")
+
+func _ready():
+	pass
 
 
 func _process(delta):
@@ -48,11 +49,12 @@ func _process(delta):
 			randomize()
 			idle_duration = rand_range(min_idle_time, max_idle_time)
 			$idle_timer.start(idle_duration)
-		
+			
 	move_and_slide(Vector2(0, velocity.y), Vector2(0, dir))
 	
+	
 	if (in_range):
-		if (player.position.x < position.x):
+		if (player.position.x < get_parent().position.x):
 			shoot_dir = -1
 		else:
 			shoot_dir = 1
@@ -92,18 +94,17 @@ func _on_death_timeout():
 
 func _on_idle_timer_timeout():
 	dir = dir * -1
-	print(str(dir))
 	switch_dir = true
 	
 	
 func _on_VisibilityNotifier2D_screen_entered():
 	in_range = true
-	print("in_range was set to true")
+	
 
 
 func _on_VisibilityNotifier2D_screen_exited():
 	in_range = false
-	print("in_range was set to false")
+	
 
 
 func _on_shoot_ready_timeout():
