@@ -30,7 +30,6 @@ extents = Vector2( 32, 26.5 )
 
 [node name="shooter_mover" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
-move_speed = 100
 bullet_scene = ExtResource( 6 )
 bullet_spawn_y = 0
 

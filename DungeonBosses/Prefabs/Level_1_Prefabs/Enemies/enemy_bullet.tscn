@@ -8,7 +8,8 @@ extents = Vector2( 17, 17 )
 
 [node name="enemy_bullet_node" type="Node2D"]
 script = ExtResource( 2 )
-speed = 5.0
+speed = 8.0
+distance = 500
 
 [node name="enemy_bullet" type="KinematicBody2D" parent="."]
 

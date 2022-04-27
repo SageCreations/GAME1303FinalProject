@@ -15,8 +15,10 @@ extents = Vector2( 17, 17 )
 
 [node name="shooter_flyer" type="KinematicBody2D" parent="."]
 script = ExtResource( 3 )
-distance_from_origin = 50
+distance_from_origin = 100
+move_speed = 150
 bullet_scene = ExtResource( 4 )
+min_shoot_time = 2.0
 
 [node name="Sprite" type="Sprite" parent="shooter_flyer"]
 texture = ExtResource( 1 )

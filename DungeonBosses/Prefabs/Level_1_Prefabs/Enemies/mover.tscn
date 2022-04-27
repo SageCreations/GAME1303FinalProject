@@ -30,6 +30,7 @@ height = 14.0
 light_mask = 2
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
+move_speed = 250
 
 [node name="mover" type="KinematicBody2D" parent="."]
 

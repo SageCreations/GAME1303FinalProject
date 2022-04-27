@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scripts/Level_1_Scripts/diagonal_phasable_platform.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Prototyping/LightGrey_Box64x64.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Level_1_Sprites/Platforms/bridge.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 102, 11 )
+extents = Vector2( 105, 6 )
 
 [node name="diagonal_phasabale_platform" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,10 +15,12 @@ __meta__ = {
 [node name="platform" type="KinematicBody2D" parent="."]
 
 [node name="Sprite" type="Sprite" parent="platform"]
-scale = Vector2( 3.21562, 0.34375 )
+modulate = Color( 0, 1, 0.858824, 1 )
+scale = Vector2( 3, 0.6 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+position = Vector2( 0, 15 )
 shape = SubResource( 1 )
 one_way_collision = true
 
