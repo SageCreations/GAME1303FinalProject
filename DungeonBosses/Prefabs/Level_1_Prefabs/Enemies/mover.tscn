@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Level_1_Scripts/mover.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/mover/enemyWalking_1.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/mover/enemyWalking_2.png" type="Texture" id=3]
+[ext_resource path="res://Audio/Level_1_Sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=4]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 15.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 15.0
+height = 14.0
+
+[node name="mover_type" type="Node2D"]
+light_mask = 2
+scale = Vector2( 1.5, 1.5 )
+script = ExtResource( 1 )
+move_speed = 250
+
+[node name="mover" type="KinematicBody2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="mover"]
+frames = SubResource( 2 )
+animation = "walk"
+
+[node name="Sprite" type="Sprite" parent="mover"]
+visible = false
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mover"]
+shape = SubResource( 4 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="Area2D" type="Area2D" parent="mover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mover/Area2D"]
+shape = SubResource( 3 )
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="mover"]
+stream = ExtResource( 4 )
+volume_db = 10.0
+
+[node name="death" type="Timer" parent="mover"]
+wait_time = 0.2
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="mover"]
+position = Vector2( 16, 0 )
+enabled = true
+cast_to = Vector2( 0, 24 )
+
+[connection signal="body_entered" from="mover/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="mover/death" to="." method="_on_death_timeout"]
