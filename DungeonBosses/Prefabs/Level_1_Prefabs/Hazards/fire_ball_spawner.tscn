@@ -8,6 +8,8 @@
 [node name="fire_ball_spawner_node" type="Node2D"]
 script = ExtResource( 1 )
 fire_ball_scene = ExtResource( 2 )
+min_shoot_time = 1.5
+max_shoot_time = 1.5
 
 [node name="fire_ball_spawner" type="KinematicBody2D" parent="."]
 

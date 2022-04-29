@@ -30,8 +30,10 @@ extents = Vector2( 32, 26.5 )
 
 [node name="shooter_mover" type="KinematicBody2D" parent="."]
 script = ExtResource( 2 )
+distance_from_origin = 500
 bullet_scene = ExtResource( 6 )
 bullet_spawn_y = 0
+min_shoot_time = 2.0
 
 [node name="Sprite" type="Sprite" parent="shooter_mover"]
 visible = false

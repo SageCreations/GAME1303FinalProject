@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Sprites/Prototyping/Orange_Box64x64.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Level_1_Sprites/bullet_4_2.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Level_1_Scripts/enemy_bullet.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
