@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Sprites/Level_1_Sprites/yellowJewel.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Level_1_Sprites/coinGold.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Level_1_Scripts/coin.gd" type="Script" id=2]
 [ext_resource path="res://Audio/Level_1_Sounds/coin_pick_up.wav" type="AudioStream" id=3]
 

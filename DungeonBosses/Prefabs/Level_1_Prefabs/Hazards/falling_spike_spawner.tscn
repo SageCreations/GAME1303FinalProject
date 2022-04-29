@@ -10,6 +10,7 @@ script = ExtResource( 1 )
 spike_scene = ExtResource( 2 )
 spike_spawn_x = 0
 spike_spawn_y = 0
+max_shoot_time = 1.0
 
 [node name="falling_spike_spawner" type="KinematicBody2D" parent="."]
 
