@@ -28,14 +28,14 @@ export (int) var bullet_spawn_y = 0
 onready var anim_sprite = $AnimatedSprite
 onready var sprite = $Sprite
 
-onready var game_over_label = $HUD/CanvasLayer/MessageLabel
-onready var continue_button = $HUD/CanvasLayer/continue_button
-onready var quit_button = $HUD/CanvasLayer/quit_button
-onready var health_label = $HUD/CanvasLayer/HealthLabel
-onready var coin_label = $HUD/CanvasLayer/ScoreLabel
+onready var game_over_label = $HUD/CanvasLayer/CenterContainer/MessageLabel
+onready var continue_button = $HUD/CanvasLayer/VBoxContainer/continue_button
+onready var quit_button = $HUD/CanvasLayer/VBoxContainer/quit_button
+onready var health_label = $HUD/CanvasLayer/health_container/HealthLabel
+onready var coin_label = $HUD/CanvasLayer/score_container/ScoreLabel
 
 var y_vel = 0
-var facing_right = false
+var facing_right = true
 var bullet_dir
 var shoot_allowed = true
 
@@ -50,6 +50,11 @@ onready var effects_anim = $effects_animation
 var is_dead = false
 
 var amount_of_coins = 0
+var coin_counter = 0
+export var coin_amount_upgrade = 10
+
+onready var boss = get_parent().get_node("boss")
+
 
 func _ready():
 	game_over_label.visible = false
@@ -119,6 +124,13 @@ func _physics_process(_delta):
 				anim_sprite.play("walk")
 		else:
 			anim_sprite.play("jump")
+			
+			
+		if (boss != null):
+			$HUD/CanvasLayer/boss_container/boss_health_label.set_deferred("visible", true)
+			$HUD/CanvasLayer/boss_container/boss_health_label.text = "Boss Health: " + str(boss._get_health())
+		else:
+			$HUD/CanvasLayer/boss_container/boss_health_label.set_deferred("visible", false)
 	
 	
 	
@@ -194,17 +206,12 @@ func game_over():
 	quit_button.visible = true
 	
 	continue_button.connect("pressed", self, "start_over")
-	quit_button.connect("pressed", self, "pass")
+	quit_button.connect("pressed", self, "quit")
 
-
+func quit():
+	get_tree().quit()
 
 func start_over():
-	#health = start_health
-	#start(start_level_position)
-	#game_over_label.visible = false
-	#continue_button.visible = false
-	#quit_button.visible = false
-	#is_dead = false
 	get_tree().reload_current_scene()
 	
 
@@ -253,9 +260,15 @@ func _on_Area2D_body_entered(body):
 	elif (body.get_name() == "coin"):
 		# update coin counter
 		amount_of_coins += 1
+		coin_counter += 1
+		
+		if (coin_counter == coin_amount_upgrade):
+			heal(1)
+			coin_counter = 0
+			
+		
 		coin_label.text = "Coins: " + str(amount_of_coins)
 		print("player picked up a coin")
-		
 		
 	elif (body.get_name() == "health_box"):
 		print("player picked up a health_box")
@@ -264,6 +277,10 @@ func _on_Area2D_body_entered(body):
 	elif (body.get_name() == "checkpoint"):
 		print("checkpoint space entered")
 		spawn_point = body.get_parent().position       # .get_global_position()
+	elif (body.get_name() == "boss"):
+		print("player got hit by boss")
+		damage(1)
+		
 	else: 
 		print("Something strange entered the player; Object: " + str(body))
 	

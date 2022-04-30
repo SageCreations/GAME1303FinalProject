@@ -15,7 +15,7 @@ dest_files=[ "res://.import/idle_0.png-40acf8f015eb1683fea0f3fff12c3e18.stex" ]
 [params]
 
 compress/mode=0
-compress/lossy_quality=0.5
+compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0

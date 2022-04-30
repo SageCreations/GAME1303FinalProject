@@ -1,18 +1,25 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf" type="DynamicFontData" id=1]
-
-[sub_resource type="DynamicFont" id=1]
-size = 60
-font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
 font_data = ExtResource( 1 )
 
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 20
+font_data = SubResource( 4 )
 
 [node name="HUD" type="Control"]
 anchor_right = 1.0
@@ -20,11 +27,50 @@ anchor_bottom = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="MessageLabel" type="Label" parent="CanvasLayer"]
-margin_left = 365.0
-margin_top = 247.0
-margin_right = 620.0
-margin_bottom = 338.0
+[node name="score_container" type="HBoxContainer" parent="CanvasLayer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 104.0
+margin_bottom = 50.0
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/score_container"]
+margin_top = 2.0
+margin_right = 94.0
+margin_bottom = 38.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Score: #"
+align = 1
+valign = 1
+
+[node name="health_container" type="HBoxContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -117.0
+margin_top = 10.0
+margin_bottom = 46.0
+alignment = 1
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/health_container"]
+margin_left = 5.0
+margin_right = 112.0
+margin_bottom = 36.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Health: #"
+align = 1
+valign = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MessageLabel" type="Label" parent="CanvasLayer/CenterContainer"]
+margin_left = 353.0
+margin_top = 258.0
+margin_right = 670.0
+margin_bottom = 341.0
 custom_colors/font_color = Color( 1, 0.0156863, 0.0156863, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
@@ -35,37 +81,43 @@ align = 1
 valign = 1
 uppercase = true
 
-[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
-margin_right = 153.0
-margin_bottom = 42.0
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Score: #"
-align = 1
-valign = 1
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -247.788
+margin_right = 75.0
+margin_bottom = -147.788
 
-[node name="HealthLabel" type="Label" parent="CanvasLayer"]
-margin_left = 872.0
-margin_right = 1024.0
-margin_bottom = 43.0
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "Health: #"
-align = 1
-valign = 1
-
-[node name="continue_button" type="Button" parent="CanvasLayer"]
-margin_left = 625.0
-margin_top = 353.0
-margin_right = 814.0
-margin_bottom = 414.0
+[node name="continue_button" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_right = 150.0
+margin_bottom = 48.0
 custom_fonts/font = SubResource( 3 )
 text = "Continue"
 
-[node name="quit_button" type="Button" parent="CanvasLayer"]
-margin_left = 247.0
-margin_top = 358.0
-margin_right = 436.0
-margin_bottom = 419.0
+[node name="quit_button" type="Button" parent="CanvasLayer/VBoxContainer"]
+margin_top = 52.0
+margin_right = 150.0
+margin_bottom = 100.0
 custom_fonts/font = SubResource( 3 )
 text = "Quit"
+
+[node name="boss_container" type="HBoxContainer" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -150.0
+margin_top = -36.0
+margin_right = -10.0
+margin_bottom = -10.0
+alignment = 1
+
+[node name="boss_health_label" type="Label" parent="CanvasLayer/boss_container"]
+margin_left = 3.0
+margin_right = 137.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 5 )
+text = "Boss Health: # "
