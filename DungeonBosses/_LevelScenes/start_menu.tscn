@@ -1,31 +1,25 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://_LevelScenes/start_menu.gd" type="Script" id=1]
-[ext_resource path="res://_LevelScenes/Level_1.tscn" type="PackedScene" id=2]
-[ext_resource path="res://_LevelScenes/credits.tscn" type="PackedScene" id=3]
-[ext_resource path="res://_LevelScenes/controls.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Level_1_Scripts/start_menu.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFontData" id=1]
+[sub_resource type="DynamicFontData" id=5]
 font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
-font_data = SubResource( 1 )
+font_data = SubResource( 5 )
 
-[sub_resource type="DynamicFontData" id=3]
+[sub_resource type="DynamicFontData" id=6]
 font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
 
 [sub_resource type="DynamicFont" id=4]
 size = 50
-font_data = SubResource( 3 )
+font_data = SubResource( 6 )
 
-[node name="Control" type="Control"]
+[node name="start_menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-level_1_scene = ExtResource( 2 )
-credits_scene = ExtResource( 3 )
-controls_scene = ExtResource( 4 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -64,15 +58,21 @@ custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_top = 0.5
 anchor_right = 1.0
-margin_top = 100.0
-margin_bottom = 69.0
+anchor_bottom = 0.5
+margin_top = -200.0
+margin_bottom = -100.0
 alignment = 1
 
 [node name="title_label" type="Label" parent="HBoxContainer"]
 margin_left = 241.0
+margin_top = 15.0
 margin_right = 783.0
-margin_bottom = 69.0
+margin_bottom = 84.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 3
+custom_constants/shadow_offset_y = 3
 custom_fonts/font = SubResource( 4 )
 text = "Project Dungeon Bosses"
 align = 1

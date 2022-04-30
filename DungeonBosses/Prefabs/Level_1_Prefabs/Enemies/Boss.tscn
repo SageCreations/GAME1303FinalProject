@@ -53,18 +53,18 @@ animations = [ {
 "name": "hit",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "taunt",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 25 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ) ],
 "loop": true,
 "name": "run",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 35 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 35 ) ],
 "loop": false,
+"name": "taunt",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"loop": true,
 "name": "attack",
 "speed": 12.0
 } ]
@@ -100,7 +100,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=38]
 resource_name = "hit"
-length = 0.7
+length = 0.5
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:modulate")
@@ -109,7 +109,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.7 ),
+"times": PoolRealArray( 0, 0.25, 0.49 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.239216, 0.239216, 1 ), Color( 1, 1, 1, 1 ) ]
@@ -138,8 +138,7 @@ script = ExtResource( 37 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "death"
-frame = 5
+animation = "idle"
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -179,7 +178,7 @@ anims/hit = SubResource( 38 )
 anims/taunt = SubResource( 37 )
 
 [node name="effects_timer" type="Timer" parent="."]
-wait_time = 0.7
+wait_time = 0.5
 one_shot = true
 
 [node name="death_timer" type="Timer" parent="."]

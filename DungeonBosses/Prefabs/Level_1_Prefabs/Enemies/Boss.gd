@@ -1,10 +1,10 @@
 extends KinematicBody2D
 
-export var move_speed = 500
+export var move_speed = 800
 export var move_speed_boost = 200
 export var gravity = 50
 export var max_fall_speed = 1000
-export var jump_force = 1500
+export var jump_force = 1700
 var has_jumped = false
 
 var y_vel = 0
@@ -23,7 +23,7 @@ var in_range = false
 
 enum State {STATE_IDLE, STATE_TAUNT, STATE_WALK, STATE_ATTACK, STATE_DEAD}
 
-var current_state = State.STATE_IDLE
+var current_state = null
 
 onready var player = get_parent().get_node("Player")
 
@@ -60,10 +60,10 @@ func _process(delta):
 				anim.flip_h = false
 				$attack_range/CollisionShape2D.position.x = 72
 				dir = 1
-			effects_anim.play("taunt")
+			
 			if(anim.get_frame() == 10):
 				set_state(State.STATE_WALK)
-				effects_anim.stop()
+				
 				
 
 		elif (current_state == State.STATE_WALK):
@@ -139,7 +139,7 @@ func _damage(value):
 		if($effects_timer.is_stopped()):
 			$effects_timer.start()
 			effects_anim.play("hit")
-		effects_anim.play("damage")
+		#effects_anim.play("damage")
 	
 	
 	
@@ -202,5 +202,4 @@ func _on_effects_timer_timeout():
 
 
 func _on_death_timer_timeout():
-	pass
-	# make it go to Congrats screen
+	get_tree().change_scene("res://_LevelScenes/win_scene.tscn")
