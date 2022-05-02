@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Walk_Running_PlayerModel.wav-0e8f73a8dc5f09c04788439d18f26f9e.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/WalkOrRun/Walk_Running_PlayerModel.wav"
+dest_files=[ "res://.import/Walk_Running_PlayerModel.wav-0e8f73a8dc5f09c04788439d18f26f9e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

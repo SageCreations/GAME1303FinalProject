@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/103996__rutgermuller__jumping-on-wooden-plate-in-hall.wav-4cbeef40a1cf36d8860ffc97b8260b5f.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/HardAndHeavyJump/103996__rutgermuller__jumping-on-wooden-plate-in-hall.wav"
+dest_files=[ "res://.import/103996__rutgermuller__jumping-on-wooden-plate-in-hall.wav-4cbeef40a1cf36d8860ffc97b8260b5f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
