@@ -217,5 +217,7 @@ speed = 150
 [node name="delete_extras_node" parent="garbage_collection" instance=ExtResource( 5 )]
 position = Vector2( -362, 689 )
 
+
 [node name="delete_extras_node2" parent="garbage_collection" instance=ExtResource( 5 )]
 position = Vector2( 2154, 531 )
+
