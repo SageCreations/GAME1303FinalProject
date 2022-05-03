@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter/enemySpikey_1.png" type="Texture" id=1]
 [ext_resource path="res://Audio/Level_1_Sounds/prototyping_sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=2]
 [ext_resource path="res://Scripts/Level_1_Scripts/shooter.gd" type="Script" id=3]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Enemies/enemy_bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/EnemyShooterType/GunEffect/Enemy Gun Effect.wav" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 40.0125
@@ -50,6 +51,12 @@ scale = Vector2( 39, 5.1 )
 
 [node name="shoot_ready" type="Timer" parent="shooter"]
 one_shot = true
+
+[node name="shoot_sound" type="AudioStreamPlayer2D" parent="shooter"]
+stream = ExtResource( 5 )
+volume_db = -5.0
+pitch_scale = 0.9
+attenuation = 3.86374
 
 [connection signal="timeout" from="shooter/death" to="." method="_on_death_timeout"]
 [connection signal="body_entered" from="shooter/Area2D" to="." method="_on_Area2D_body_entered"]

@@ -31,7 +31,7 @@ one_shot = true
 
 [node name="coin_pickup" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
-volume_db = 5.0
+volume_db = -5.0
 
 [connection signal="body_entered" from="coin/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="despawn" to="." method="_on_despawn_timeout"]

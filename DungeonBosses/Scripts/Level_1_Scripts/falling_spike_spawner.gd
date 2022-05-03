@@ -36,6 +36,7 @@ func drop():
 	$falling_spike_spawner/shoot_ready.start(time)
 	spike.setup_falling_spike(Vector2(position.x - spike_spawn_x, position.y + spike_spawn_y), rotation)
 	get_parent().add_child(spike)
+	$shot_sound.play()
 
 
 func _on_shoot_ready_timeout():

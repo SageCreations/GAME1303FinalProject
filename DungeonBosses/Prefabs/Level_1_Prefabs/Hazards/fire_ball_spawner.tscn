@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Level_1_Scripts/fire_ball_spawner.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Hazards/fire_ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Hazards/Fireball Popping out of lava/223615__ctcollab__fireball-1.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,6 +25,10 @@ scale = Vector2( 13.9, 24 )
 
 [node name="shoot_ready" type="Timer" parent="fire_ball_spawner"]
 one_shot = true
+
+[node name="shot_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 5.0
 
 [connection signal="screen_entered" from="fire_ball_spawner/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="fire_ball_spawner/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

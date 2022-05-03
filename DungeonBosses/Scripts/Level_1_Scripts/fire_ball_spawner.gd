@@ -36,6 +36,7 @@ func shoot_fire_ball():
 	$fire_ball_spawner/shoot_ready.start(time)
 	fire_ball.setup_fire_ball(Vector2(position.x - fire_ball_spawn_x, position.y + fire_ball_spawn_y), rotation)
 	get_parent().add_child(fire_ball)
+	$shot_sound.play()
 
 
 func _on_shoot_ready_timeout():

@@ -1,16 +1,20 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Sprites/Level_1_Sprites/Player/player_2_0.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Level_1_Scripts/Player_Level_1.gd" type="Script" id=2]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Player/bullet.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Audio/Level_1_Sounds/prototyping_sounds/Shotgun_semi_auto_20220331-155854.wav" type="AudioStream" id=4]
-[ext_resource path="res://Audio/temp_assets/walk.wav" type="AudioStream" id=5]
-[ext_resource path="res://Audio/Level_1_Sounds/prototyping_sounds/Level_1_jump.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/WalkOrRun/Walk_Running_PlayerModel.wav" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/Shoot/Shotgun_semi_aut0_20220331-155854.wav" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/Jump/350898__cabled-mess__jump-c-08 (2).wav" type="AudioStream" id=6]
 [ext_resource path="res://Sprites/Level_1_Sprites/Player/player_2_1.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Level_1_Sprites/Player/player_2_2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Level_1_Sprites/Player/player_2_3.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Level_1_Sprites/Player/player_2_4.png" type="Texture" id=10]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Player/HUD.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/Player/pause_menu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/Hurt/HurtSoundEffectFinalV.wav" type="AudioStream" id=13]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/DeathSoundsFadeOut/PlayerDeathSound.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Music/GameOverMusic/GameOverMusic.wav" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -19,15 +23,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "walk",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "jump",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 15.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -140,21 +144,21 @@ one_way_collision = true
 one_way_collision_margin = 0.0
 
 [node name="shotgun_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
+stream = ExtResource( 5 )
 
 [node name="shot_timer" type="Timer" parent="."]
 wait_time = 0.6
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-volume_db = -5.0
+stream = ExtResource( 4 )
+volume_db = -10.0
+pitch_scale = 0.9
+attenuation = 0.0103086
 
 [node name="jump_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = 8.0
-
-[node name="walk_sound_timer" type="Timer" parent="."]
-wait_time = 0.67
+volume_db = 10.0
+attenuation = 0.00837324
 
 [node name="invuln_timer" type="Timer" parent="."]
 one_shot = true
@@ -174,7 +178,9 @@ shape = SubResource( 8 )
 one_way_collision = true
 one_way_collision_margin = 0.0
 
-[node name="timeout" type="Timer" parent="."]
+[node name="gameover_music_start" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -185,7 +191,20 @@ editor_draw_drag_margin = true
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
 
+[node name="pause_menu" parent="." instance=ExtResource( 12 )]
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 13 )
+attenuation = 0.0507658
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+attenuation = 0.032352
+
+[node name="gameover_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+
 [connection signal="timeout" from="shot_timer" to="." method="_on_shot_timer_timeout"]
-[connection signal="timeout" from="walk_sound_timer" to="." method="_on_walk_sound_timer_timeout"]
 [connection signal="timeout" from="invuln_timer" to="." method="_on_invuln_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="gameover_music_start" to="." method="_on_gameover_music_start_timeout"]

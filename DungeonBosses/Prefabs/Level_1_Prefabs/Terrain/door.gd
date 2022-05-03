@@ -4,7 +4,7 @@ var raise_door = false
 var y_vel = 0
 var dir = 0
 
-export var move_speed = 300
+export var move_speed = 100
 
 func _process(delta):
 	if (raise_door):
@@ -22,7 +22,10 @@ func _on_Area2D_body_entered(body):
 	if (body.get_name() == "Player"):
 		raise_door = true
 		dir = -1
+		if ($door_open.playing == false):
+			$door_open.set_deferred("playing", true)
 		print(" door is raised")
+		$door_close.set_deferred("playing", false)
 		
 
 
@@ -30,3 +33,6 @@ func _on_Area2D_body_exited(body):
 	if (body.get_name() == "Player"):
 		raise_door = false
 		dir = 1
+		if ($door_close.playing == false):
+			$door_close.set_deferred("playing", true)
+		$door_open.set_deferred("playing", false)

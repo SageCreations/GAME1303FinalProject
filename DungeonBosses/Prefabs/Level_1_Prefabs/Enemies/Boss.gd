@@ -61,7 +61,11 @@ func _process(delta):
 				$attack_range/CollisionShape2D.position.x = 72
 				dir = 1
 			
+			if (!$taunt.playing):
+				$taunt.set_deferred("playing", true)
+			
 			if(anim.get_frame() == 10):
+				$taunt.set_deferred("playing", false)
 				set_state(State.STATE_WALK)
 				
 				
@@ -70,13 +74,19 @@ func _process(delta):
 			# lock boss direction at this point.
 			# let the boss move x_axis wise now.
 			anim.play("run")
+			if (!$run.playing):
+				$run.set_deferred("playing", true)
+			
 			x_vel = move_speed * dir
 			
 			
 			if (in_range):
+				$run.set_deferred("playing", false)
 				set_state(State.STATE_ATTACK)
+				
 			
 			if(is_on_wall()):
+				$run.set_deferred("playing", false)
 				set_state(State.STATE_IDLE)
 
 		elif (current_state == State.STATE_ATTACK):
@@ -84,12 +94,17 @@ func _process(delta):
 			x_vel = (move_speed + move_speed_boost) * dir
 			anim.play("attack")
 			
+			if (!$swing.playing):
+				$swing.set_deferred("playing", true)
+			
 			if(is_on_wall()):
+				$swing.set_deferred("playing", false)
 				set_state(State.STATE_IDLE)
 				
 			if (is_on_floor()):
 				if (boss_health <= max_boss_health/2 && has_jumped == false):
 					if(player.position.x > position.x-100 && player.position.x < position.x+100):
+						$jump.play()
 						y_vel = -jump_force
 						has_jumped = true
 		
@@ -119,12 +134,10 @@ func _on_Area2D_body_entered(body):
 	if (body.get_name() == "bullet"):
 		_damage(1)
 		body.queue_free()
-		#add func call for getting hit
-		print("bullet has entered boss")
+		
 		
 		
 func set_state(new_state):
-	print("old state: " + str(current_state) + " ///////// " + "new state: " + str(new_state))
 	current_state = new_state
 	
 		
@@ -139,7 +152,7 @@ func _damage(value):
 		if($effects_timer.is_stopped()):
 			$effects_timer.start()
 			effects_anim.play("hit")
-		#effects_anim.play("damage")
+		$hit.play()
 	
 	
 	
@@ -153,8 +166,6 @@ func _damage(value):
 #			kill()
 #		effects_anim.play("damage")
 #		effects_anim.queue("invuln")
-
-#func for health (add or sub)
 	
 func _get_health():
 	return boss_health

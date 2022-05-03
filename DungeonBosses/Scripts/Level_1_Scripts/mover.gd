@@ -25,6 +25,7 @@ func _process(delta):
 	else:
 		dir = dir * -1
 		$mover/RayCast2D.position.x *= -1
+		
 	
 	
 	$mover/AnimatedSprite.play("walk")

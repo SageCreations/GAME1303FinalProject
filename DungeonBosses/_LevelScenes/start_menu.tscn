@@ -2,12 +2,12 @@
 
 [ext_resource path="res://Scripts/Level_1_Scripts/start_menu.gd" type="Script" id=1]
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=7]
 font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 26
-font_data = SubResource( 5 )
+font_data = SubResource( 7 )
 
 [sub_resource type="DynamicFontData" id=6]
 font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
@@ -30,30 +30,30 @@ margin_right = 71.0
 alignment = 1
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
-margin_top = 210.0
+margin_top = 450.0
 margin_right = 142.0
-margin_bottom = 252.0
+margin_bottom = 492.0
 custom_fonts/font = SubResource( 2 )
 text = "Start Game"
 
 [node name="credits_button" type="Button" parent="VBoxContainer"]
-margin_top = 256.0
+margin_top = 496.0
 margin_right = 142.0
-margin_bottom = 298.0
+margin_bottom = 538.0
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
 
 [node name="controls_button" type="Button" parent="VBoxContainer"]
-margin_top = 302.0
+margin_top = 542.0
 margin_right = 142.0
-margin_bottom = 344.0
+margin_bottom = 584.0
 custom_fonts/font = SubResource( 2 )
 text = "Controls"
 
 [node name="quit_button" type="Button" parent="VBoxContainer"]
-margin_top = 348.0
+margin_top = 588.0
 margin_right = 142.0
-margin_bottom = 390.0
+margin_bottom = 630.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
@@ -66,9 +66,9 @@ margin_bottom = -100.0
 alignment = 1
 
 [node name="title_label" type="Label" parent="HBoxContainer"]
-margin_left = 241.0
+margin_left = 689.0
 margin_top = 15.0
-margin_right = 783.0
+margin_right = 1231.0
 margin_bottom = 84.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3

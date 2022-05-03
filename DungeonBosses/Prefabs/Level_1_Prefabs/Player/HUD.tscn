@@ -66,10 +66,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer/CenterContainer"]
-margin_left = 353.0
-margin_top = 258.0
-margin_right = 670.0
-margin_bottom = 341.0
+margin_left = 801.0
+margin_top = 498.0
+margin_right = 1118.0
+margin_bottom = 581.0
 custom_colors/font_color = Color( 1, 0.0156863, 0.0156863, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
