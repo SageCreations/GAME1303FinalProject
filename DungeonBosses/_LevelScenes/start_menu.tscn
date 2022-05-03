@@ -30,30 +30,37 @@ margin_right = 71.0
 alignment = 1
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
-margin_top = 450.0
-margin_right = 142.0
-margin_bottom = 492.0
+margin_top = 427.0
+margin_right = 233.0
+margin_bottom = 469.0
 custom_fonts/font = SubResource( 2 )
 text = "Start Game"
 
+[node name="boss_level" type="Button" parent="VBoxContainer"]
+margin_top = 473.0
+margin_right = 233.0
+margin_bottom = 515.0
+custom_fonts/font = SubResource( 2 )
+text = "Debug (Boss_Level)"
+
 [node name="credits_button" type="Button" parent="VBoxContainer"]
-margin_top = 496.0
-margin_right = 142.0
-margin_bottom = 538.0
+margin_top = 519.0
+margin_right = 233.0
+margin_bottom = 561.0
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
 
 [node name="controls_button" type="Button" parent="VBoxContainer"]
-margin_top = 542.0
-margin_right = 142.0
-margin_bottom = 584.0
+margin_top = 565.0
+margin_right = 233.0
+margin_bottom = 607.0
 custom_fonts/font = SubResource( 2 )
 text = "Controls"
 
 [node name="quit_button" type="Button" parent="VBoxContainer"]
-margin_top = 588.0
-margin_right = 142.0
-margin_bottom = 630.0
+margin_top = 611.0
+margin_right = 233.0
+margin_bottom = 653.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
@@ -79,6 +86,7 @@ align = 1
 valign = 1
 
 [connection signal="pressed" from="VBoxContainer/start_button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/boss_level" to="." method="_on_boss_level_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/controls_button" to="." method="_on_controls_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]

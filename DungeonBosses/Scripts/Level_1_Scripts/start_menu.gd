@@ -25,3 +25,7 @@ func _on_quit_button_pressed():
 
 func _on_controls_button_pressed():
 	button_pressed("res://_LevelScenes/controls.tscn")
+
+
+func _on_boss_level_pressed():
+	button_pressed("res://_LevelScenes/boss_level.tscn")
