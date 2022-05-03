@@ -1,11 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Audio/Level_1_Sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=1]
+[ext_resource path="res://Audio/Level_1_Sounds/prototyping_sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Level_1_Scripts/shooter_mover.gd" type="Script" id=2]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_1.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_3.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_2.png" type="Texture" id=5]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Enemies/enemy_bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/EnemyShooterType/GunEffect/Enemy Gun Effect.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Enemy/WalkingSoundDifferentPitch/EnemyWalking.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 26.5 )
@@ -75,6 +77,18 @@ one_shot = true
 position = Vector2( 32, 0 )
 enabled = true
 cast_to = Vector2( 0, 30 )
+
+[node name="shoot_sound" type="AudioStreamPlayer2D" parent="shooter_mover"]
+stream = ExtResource( 7 )
+volume_db = -5.0
+pitch_scale = 0.9
+attenuation = 3.86374
+
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="shooter_mover"]
+stream = ExtResource( 8 )
+pitch_scale = 0.8
+autoplay = true
+attenuation = 3.24901
 
 [connection signal="body_entered" from="shooter_mover/Area2D" to="shooter_mover" method="_on_Area2D_body_entered"]
 [connection signal="timeout" from="shooter_mover/death" to="shooter_mover" method="_on_death_timeout"]

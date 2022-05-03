@@ -28,21 +28,19 @@ export (int) var bullet_spawn_y = 0
 onready var anim_sprite = $AnimatedSprite
 onready var sprite = $Sprite
 
-onready var game_over_label = $HUD/CanvasLayer/MessageLabel
-onready var continue_button = $HUD/CanvasLayer/continue_button
-onready var quit_button = $HUD/CanvasLayer/quit_button
-onready var health_label = $HUD/CanvasLayer/HealthLabel
-onready var coin_label = $HUD/CanvasLayer/ScoreLabel
+onready var game_over_label = $HUD/CanvasLayer/CenterContainer/MessageLabel
+onready var continue_button = $HUD/CanvasLayer/VBoxContainer/continue_button
+onready var quit_button = $HUD/CanvasLayer/VBoxContainer/quit_button
+onready var health_label = $HUD/CanvasLayer/health_container/HealthLabel
+onready var coin_label = $HUD/CanvasLayer/score_container/ScoreLabel
 
 var y_vel = 0
-var facing_right = false
+var facing_right = true
 var bullet_dir
 var shoot_allowed = true
 
 var grounded 
 var hit_ceiling
-
-var renew_walk_sound = true
 
 onready var invuln_timer = $invuln_timer
 onready var effects_anim = $effects_animation
@@ -50,6 +48,12 @@ onready var effects_anim = $effects_animation
 var is_dead = false
 
 var amount_of_coins = 0
+var coin_counter = 0
+export var coin_amount_upgrade = 10
+
+onready var boss = get_parent().get_node("boss")
+onready var level_music = get_parent().get_node("level_music")
+
 
 func _ready():
 	game_over_label.visible = false
@@ -63,6 +67,7 @@ func _ready():
 #function handles all updated values
 func _physics_process(_delta):
 	if (is_dead == false):
+		
 		# left and right movement
 		var move_dir = 0
 		if Input.is_action_pressed("lvl_1_move_right"):
@@ -72,10 +77,14 @@ func _physics_process(_delta):
 		move_and_slide(Vector2(move_dir * move_speed, y_vel), Vector2(0, -1))
 		
 		grounded = is_on_floor()
-		if (move_dir != 0 && grounded && renew_walk_sound):
-			renew_walk_sound = false
-			$walk_sound.play()
-			$walk_sound_timer.start()
+		
+		if (move_dir != 0 && grounded):
+			if ($walk_sound.playing == false):
+				$walk_sound.set_deferred("playing", true)
+		
+		if (move_dir == 0 || !grounded):
+			$walk_sound.set_deferred("playing", false)
+			
 		
 		# jump code
 		# moved grounded initialization up for walking sound code
@@ -119,7 +128,18 @@ func _physics_process(_delta):
 				anim_sprite.play("walk")
 		else:
 			anim_sprite.play("jump")
+			
+			
+		if (boss != null):
+			$HUD/CanvasLayer/boss_container/boss_health_label.set_deferred("visible", true)
+			$HUD/CanvasLayer/boss_container/boss_health_label.text = "Boss Health: " + str(boss._get_health())
+		else:
+			$HUD/CanvasLayer/boss_container/boss_health_label.set_deferred("visible", false)
 	
+	else:
+		if (level_music != null):
+			if (level_music.playing == true):
+				level_music.set_deferred("playing", false)
 	
 	
 # function for shooting	
@@ -148,8 +168,6 @@ func flip():
 func _on_shot_timer_timeout():
 	shoot_allowed = true
 
-func _on_walk_sound_timer_timeout():
-	renew_walk_sound = true
 	
 func heal(amount):
 	if (invuln_timer.is_stopped()):
@@ -166,14 +184,18 @@ func damage(amount):
 		health_label.text = "Health: " + str(health)
 		if (health <= 0):
 			kill()
+		$hurt.play()
 		effects_anim.play("damage")
 		effects_anim.queue("invuln")
 	
 func kill():
 	$Area2D/CollisionShape2D.set_deferred("disabled", true)
 	$rectCollision.set_deferred("disabled", true)
+	$walk_sound.set_deferred("playing", false)
 	hide()
 	is_dead = true
+	$death_sound.play()
+	$gameover_music_start.start()
 	game_over()
 
 
@@ -194,17 +216,12 @@ func game_over():
 	quit_button.visible = true
 	
 	continue_button.connect("pressed", self, "start_over")
-	quit_button.connect("pressed", self, "pass")
+	quit_button.connect("pressed", self, "quit")
 
-
+func quit():
+	get_tree().quit()
 
 func start_over():
-	#health = start_health
-	#start(start_level_position)
-	#game_over_label.visible = false
-	#continue_button.visible = false
-	#quit_button.visible = false
-	#is_dead = false
 	get_tree().reload_current_scene()
 	
 
@@ -231,8 +248,6 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "spikes"):
 		print("player got hit by spikes")
-#		if (health > 0):
-#			position = spawn_point
 		damage(1)
 	elif (body.get_name() == "lava"):
 		print("player fell in lava")
@@ -240,10 +255,11 @@ func _on_Area2D_body_entered(body):
 			position = spawn_point
 		damage(1)
 	elif (body.get_name() == "falling_spike"):
-		print("player got hit by a falling spike")
+		body.queue_free()
 		damage(1)
 	elif (body.get_name() == "fire_ball"):
-		print("player got hit by a fire_ball")
+		body.queue_free()
+		
 		damage(1)
 	elif (body.get_name() == "hole"):
 		print("player fell in hole")
@@ -253,9 +269,15 @@ func _on_Area2D_body_entered(body):
 	elif (body.get_name() == "coin"):
 		# update coin counter
 		amount_of_coins += 1
+		coin_counter += 1
+		
+		if (coin_counter == coin_amount_upgrade):
+			heal(1)
+			coin_counter = 0
+			
+		
 		coin_label.text = "Coins: " + str(amount_of_coins)
 		print("player picked up a coin")
-		
 		
 	elif (body.get_name() == "health_box"):
 		print("player picked up a health_box")
@@ -264,9 +286,15 @@ func _on_Area2D_body_entered(body):
 	elif (body.get_name() == "checkpoint"):
 		print("checkpoint space entered")
 		spawn_point = body.get_parent().position       # .get_global_position()
+	elif (body.get_name() == "boss"):
+		print("player got hit by boss")
+		damage(1)
+		
 	else: 
 		print("Something strange entered the player; Object: " + str(body))
 	
 
 	
 	
+func _on_gameover_music_start_timeout():
+	$gameover_music.set_deferred("playing", true)

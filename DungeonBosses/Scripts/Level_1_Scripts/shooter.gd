@@ -41,6 +41,7 @@ func shoot(dir):
 	else:
 		bullet.setup(Vector2(position.x - bullet_spawn_x, position.y + bullet_spawn_y), rotation, dir)
 	get_parent().add_child(bullet)
+	$shooter/shoot_sound.play()
 	
 		
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Plink-sounds-headshot-or-armor-break-20220331-163453.wav-2b1c6716e68506589a809cc1d4469175.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/prototyping_sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav"
+dest_files=[ "res://.import/Plink-sounds-headshot-or-armor-break-20220331-163453.wav-2b1c6716e68506589a809cc1d4469175.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
