@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Level_1_Scripts/falling_spike_spawner.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Hazards/falling_spike.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Hazards/SpikeBreakingFromCeiling/SpikeFalling.wav" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -25,6 +26,9 @@ scale = Vector2( 13.9, 24 )
 
 [node name="shoot_ready" type="Timer" parent="falling_spike_spawner"]
 one_shot = true
+
+[node name="shot_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
 
 [connection signal="screen_entered" from="falling_spike_spawner/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
 [connection signal="screen_exited" from="falling_spike_spawner/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+font_data = SubResource( 1 )
+
+[node name="boss_hud" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -180.0
+margin_top = -40.0
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+margin_top = 6.0
+margin_right = 129.0
+margin_bottom = 34.0
+custom_fonts/font = SubResource( 2 )
+text = "Boss Health: #"
+align = 1

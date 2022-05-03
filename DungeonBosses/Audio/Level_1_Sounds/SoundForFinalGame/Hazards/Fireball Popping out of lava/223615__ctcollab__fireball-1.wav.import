@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/223615__ctcollab__fireball-1.wav-faf88c277cff8aa5cb9994f42acd733f.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Hazards/Fireball Popping out of lava/223615__ctcollab__fireball-1.wav"
+dest_files=[ "res://.import/223615__ctcollab__fireball-1.wav-faf88c277cff8aa5cb9994f42acd733f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

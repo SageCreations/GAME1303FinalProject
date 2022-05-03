@@ -1,0 +1,124 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Level_1_Scripts/pause_menu.gd" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = SubResource( 5 )
+
+[sub_resource type="DynamicFontData" id=8]
+font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
+
+[sub_resource type="DynamicFont" id=9]
+size = 26
+font_data = SubResource( 8 )
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
+
+[sub_resource type="DynamicFont" id=10]
+size = 26
+font_data = SubResource( 1 )
+
+[node name="pause_menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="pause_menu_popup" type="Popup" parent="CanvasLayer"]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pause_menu_popup"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -54.5
+margin_right = 54.5
+alignment = 1
+
+[node name="controls_button" type="Button" parent="CanvasLayer/pause_menu_popup/VBoxContainer"]
+margin_top = 473.0
+margin_right = 109.0
+margin_bottom = 515.0
+custom_fonts/font = SubResource( 6 )
+text = "Controls"
+
+[node name="start_menu" type="Button" parent="CanvasLayer/pause_menu_popup/VBoxContainer"]
+margin_top = 519.0
+margin_right = 109.0
+margin_bottom = 561.0
+custom_fonts/font = SubResource( 6 )
+text = "Restart"
+
+[node name="quit_button" type="Button" parent="CanvasLayer/pause_menu_popup/VBoxContainer"]
+margin_top = 565.0
+margin_right = 109.0
+margin_bottom = 607.0
+custom_fonts/font = SubResource( 6 )
+text = "Quit"
+
+[node name="controls_panel" type="PopupPanel" parent="CanvasLayer/pause_menu_popup"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = -50.0
+margin_bottom = -50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/pause_menu_popup/controls_panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 4.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Label" type="Label" parent="CanvasLayer/pause_menu_popup/controls_panel/VBoxContainer"]
+margin_right = 1820.0
+margin_bottom = 504.0
+custom_fonts/font = SubResource( 9 )
+text = "Movement: 
+Left Direction: \" A \"  or  \"Left Arrow\"
+Right Direction: \" D \"  or  \"Right Arrow\"
+
+Shoot:
+\" F \"
+\"Left Mouse Click\" 
+
+Jump:
+\"Space Bar\"
+
+Pause:
+\"Escape\""
+align = 1
+valign = 1
+autowrap = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/pause_menu_popup/controls_panel"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 1816.0
+margin_bottom = 976.0
+
+[node name="Button" type="Button" parent="CanvasLayer/pause_menu_popup/controls_panel/HBoxContainer"]
+margin_right = 73.0
+margin_bottom = 42.0
+custom_fonts/font = SubResource( 10 )
+text = "Back "
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="pressed" from="CanvasLayer/pause_menu_popup/VBoxContainer/controls_button" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu_popup/VBoxContainer/start_menu" to="." method="_on_start_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu_popup/VBoxContainer/quit_button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause_menu_popup/controls_panel/HBoxContainer/Button" to="." method="_on_Button_pressed"]
