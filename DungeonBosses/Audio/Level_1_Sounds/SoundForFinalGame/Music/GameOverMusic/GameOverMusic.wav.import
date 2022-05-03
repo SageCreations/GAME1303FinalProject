@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/GameOverMusic.wav-c77114e3388d1320b4d3b15d71e0ec01.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Music/GameOverMusic/GameOverMusic.wav"
+dest_files=[ "res://.import/GameOverMusic.wav-c77114e3388d1320b4d3b15d71e0ec01.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

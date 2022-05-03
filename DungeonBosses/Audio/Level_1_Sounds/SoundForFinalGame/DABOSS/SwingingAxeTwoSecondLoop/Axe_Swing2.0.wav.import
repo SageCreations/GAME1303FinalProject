@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Axe_Swing2.0.wav-5ebdbdc683e9d6b933e3aa9fbcaac914.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/SwingingAxeTwoSecondLoop/Axe_Swing2.0.wav"
+dest_files=[ "res://.import/Axe_Swing2.0.wav-5ebdbdc683e9d6b933e3aa9fbcaac914.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

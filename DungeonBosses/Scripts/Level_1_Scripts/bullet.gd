@@ -22,9 +22,9 @@ func _physics_process(_delta):
 	else:
 		queue_free()
 
-func _on_Timer_timeout():
-	queue_free()
 
-func _on_bullet_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
-	$collision_shape.queue_free()
-	$sprite.queue_free()
+
+func _on_bullet_body_entered(body):
+	#if(body):
+		#queue_free()
+	pass

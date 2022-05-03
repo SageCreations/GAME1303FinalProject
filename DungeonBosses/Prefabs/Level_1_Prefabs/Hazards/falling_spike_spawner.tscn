@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scripts/Level_1_Scripts/falling_spike_spawner.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/Hazards/falling_spike.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Hazards/SpikeBreakingFromCeiling/SpikeFalling.wav" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="falling_spike_spawner_node" type="Node2D"]
+script = ExtResource( 1 )
+spike_scene = ExtResource( 2 )
+spike_spawn_x = 0
+spike_spawn_y = 0
+max_shoot_time = 1.0
+
+[node name="falling_spike_spawner" type="KinematicBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling_spike_spawner"]
+shape = SubResource( 1 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="falling_spike_spawner"]
+position = Vector2( -9.23872e-06, 227 )
+scale = Vector2( 13.9, 24 )
+
+[node name="shoot_ready" type="Timer" parent="falling_spike_spawner"]
+one_shot = true
+
+[node name="shot_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[connection signal="screen_entered" from="falling_spike_spawner/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="falling_spike_spawner/VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="falling_spike_spawner/shoot_ready" to="." method="_on_shoot_ready_timeout"]

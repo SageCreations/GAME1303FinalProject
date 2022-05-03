@@ -1,18 +1,57 @@
-extends Node2D
+extends KinematicBody2D
 
-const IDLE_DURATION = 1.0
+export var distance_from_origin = 200
+export var move_speed = 100
 
-export var move_to = Vector2.UP * 192
-export var speed = 100
+var dir = 1
+var velocity = Vector2()
 
-onready var flyer = $flyer
-onready var tween = $Tween
+export var min_idle_time = 1.0
+export var max_idle_time = 1.5
 
-func _ready():
-	_init_tween()
+var floor_normal = Vector2.UP
+
+var idle_duration = rand_range(min_idle_time, max_idle_time)
+
+onready var start_y_pos = position.y
+
+var switch_dir = true
+
+
+func _process(delta):
+	if (dir == 1 && position.y < start_y_pos + distance_from_origin):
+		velocity.y = move_speed * dir
+	elif(dir == -1 && position.y > start_y_pos - distance_from_origin):
+		velocity.y = move_speed * dir
+	else:
+		velocity.y = 0
+		if (switch_dir):
+			switch_dir = false
+			randomize()
+			idle_duration = rand_range(min_idle_time, max_idle_time)
+			$idle_timer.start(idle_duration)
+		
+	move_and_slide(Vector2(0, velocity.y), Vector2(0, dir))
 	
-func _init_tween():
-	var duration = move_to.length() / float(speed)
-	tween.interpolate_property(flyer, "position", Vector2.ZERO, move_to, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, IDLE_DURATION)
-	tween.interpolate_property(flyer, "position", move_to, Vector2.ZERO, duration, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT, duration + IDLE_DURATION * 2)
-	tween.start()
+
+
+func _on_Area2D_body_entered(body):
+	if (body.get_name() == "bullet"):
+		print("bullet entered")
+		$death_sound.play()
+		hide()
+		body.queue_free()
+		$CollisionShape2D.set_deferred("disabled", true)
+		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		$death.start()
+
+
+func _on_death_timeout():
+	queue_free()
+
+
+func _on_idle_timer_timeout():
+	
+	dir = dir * -1
+	switch_dir = true
+	

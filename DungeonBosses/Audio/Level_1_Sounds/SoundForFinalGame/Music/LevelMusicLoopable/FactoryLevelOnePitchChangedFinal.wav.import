@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FactoryLevelOnePitchChangedFinal.wav-1163b32f6b2c619a23b0df0cd94c0fc9.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Music/LevelMusicLoopable/FactoryLevelOnePitchChangedFinal.wav"
+dest_files=[ "res://.import/FactoryLevelOnePitchChangedFinal.wav-1163b32f6b2c619a23b0df0cd94c0fc9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

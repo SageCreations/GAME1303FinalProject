@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Audio/Level_1_Sounds/prototyping_sounds/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/Level_1_Scripts/shooter_mover.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_3.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/shooter_mover/enemySwimming_2.png" type="Texture" id=5]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/Enemies/enemy_bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/EnemyShooterType/GunEffect/Enemy Gun Effect.wav" type="AudioStream" id=7]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Enemy/WalkingSoundDifferentPitch/EnemyWalking.wav" type="AudioStream" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32, 26.5 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32, 26.5 )
+
+[node name="shooter_mover_node" type="Node2D"]
+
+[node name="shooter_mover" type="KinematicBody2D" parent="."]
+script = ExtResource( 2 )
+distance_from_origin = 500
+bullet_scene = ExtResource( 6 )
+bullet_spawn_y = 0
+min_shoot_time = 2.0
+
+[node name="Sprite" type="Sprite" parent="shooter_mover"]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shooter_mover"]
+position = Vector2( -1, 0.5 )
+shape = SubResource( 1 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="shooter_mover"]
+scale = Vector2( 2, 2 )
+frames = SubResource( 3 )
+animation = "idle"
+
+[node name="Area2D" type="Area2D" parent="shooter_mover"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shooter_mover/Area2D"]
+position = Vector2( -1, 0.5 )
+shape = SubResource( 2 )
+one_way_collision = true
+one_way_collision_margin = 0.0
+
+[node name="death" type="Timer" parent="shooter_mover"]
+
+[node name="death_sound" type="AudioStreamPlayer2D" parent="shooter_mover"]
+stream = ExtResource( 1 )
+volume_db = 10.0
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="shooter_mover"]
+position = Vector2( 1.87755e-06, -7.62939e-06 )
+scale = Vector2( 14.2, 5.1 )
+
+[node name="shoot_ready" type="Timer" parent="shooter_mover"]
+one_shot = true
+
+[node name="RayCast2D" type="RayCast2D" parent="shooter_mover"]
+position = Vector2( 32, 0 )
+enabled = true
+cast_to = Vector2( 0, 30 )
+
+[node name="shoot_sound" type="AudioStreamPlayer2D" parent="shooter_mover"]
+stream = ExtResource( 7 )
+volume_db = -5.0
+pitch_scale = 0.9
+attenuation = 3.86374
+
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="shooter_mover"]
+stream = ExtResource( 8 )
+pitch_scale = 0.8
+autoplay = true
+attenuation = 3.24901
+
+[connection signal="body_entered" from="shooter_mover/Area2D" to="shooter_mover" method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="shooter_mover/death" to="shooter_mover" method="_on_death_timeout"]
+[connection signal="screen_entered" from="shooter_mover/VisibilityNotifier2D" to="shooter_mover" method="_on_VisibilityNotifier2D_screen_entered"]
+[connection signal="screen_exited" from="shooter_mover/VisibilityNotifier2D" to="shooter_mover" method="_on_VisibilityNotifier2D_screen_exited"]
+[connection signal="timeout" from="shooter_mover/shoot_ready" to="shooter_mover" method="_on_shoot_ready_timeout"]

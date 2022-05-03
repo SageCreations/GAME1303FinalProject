@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SoundForCoin.wav-1d9c5f8c696c4b9596b7eb1f5340c049.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Collectible/CoinPickUp/SoundForCoin.wav"
+dest_files=[ "res://.import/SoundForCoin.wav-1d9c5f8c696c4b9596b7eb1f5340c049.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
