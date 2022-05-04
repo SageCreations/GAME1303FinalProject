@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=59 format=2]
 
 [ext_resource path="res://Level_1.tres" type="TileSet" id=1]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Player/Player_Level_1.tscn" type="PackedScene" id=2]
@@ -55,6 +55,7 @@
 [ext_resource path="res://Sprites/Level_1_Sprites/Tilesets/Tiles/metalCenter.png" type="Texture" id=53]
 [ext_resource path="res://Sprites/Level_1_Sprites/Tilesets/Tiles/Box.png" type="Texture" id=54]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/delete_extras.tscn" type="PackedScene" id=55]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/delete_player_bullets.tscn" type="PackedScene" id=56]
 
 [sub_resource type="TileSet" id=51]
 0/name = "stoneCaveUR.png 0"
@@ -1464,21 +1465,25 @@ speed = 200
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Invis_shooter_type33" parent="Enemies" instance=ExtResource( 44 )]
+visible = false
 position = Vector2( -235, -103 )
 bullet_spawn_x = 40
 bullet_spawn_y = -10
 
 [node name="Invis_shooter_type34" parent="Enemies" instance=ExtResource( 44 )]
+visible = false
 position = Vector2( -235, 104 )
 bullet_spawn_x = 40
 bullet_spawn_y = -10
 
 [node name="Invis_shooter_type35" parent="Enemies" instance=ExtResource( 44 )]
+visible = false
 position = Vector2( 1904, -103 )
 bullet_spawn_x = 40
 bullet_spawn_y = -10
 
 [node name="Invis_shooter_type36" parent="Enemies" instance=ExtResource( 44 )]
+visible = false
 position = Vector2( 1904, 104 )
 bullet_spawn_x = 40
 bullet_spawn_y = -10
@@ -1503,6 +1508,14 @@ position = Vector2( 823, 635 )
 [node name="delete_extras_node" parent="Garbage_Collection" instance=ExtResource( 55 )]
 position = Vector2( -966, 1725 )
 scale = Vector2( 5, 1 )
+
+[node name="delete_player_bullets" parent="Garbage_Collection" instance=ExtResource( 56 )]
+position = Vector2( -146, -1 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="delete_player_bullets2" parent="Garbage_Collection" instance=ExtResource( 56 )]
+position = Vector2( 1804, 17 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -3312, 473 )
