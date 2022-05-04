@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=76 format=2]
+[gd_resource type="TileSet" load_steps=77 format=2]
 
 [ext_resource path="res://Sprites/Level_1_Sprites/Tilesets/beamDiagonalRight.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Level_1_Sprites/Tilesets/beamBolts.png" type="Texture" id=2]
@@ -178,6 +178,9 @@ points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=52]
 points = PoolVector2Array( 14.6134, 22.1719, 37.2888, 28.3737, 46.2039, 55.119, 70, 70, 0, 70, 0, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=54]
+points = PoolVector2Array( 69, 69, 0, 69, 0, 0, 69, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=53]
 points = PoolVector2Array( 70, 40, 0, 40, 0, 0, 70, 0 )
@@ -1604,3 +1607,24 @@ points = PoolVector2Array( 70, 40, 0, 40, 0, 0, 70, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 88/z_index = 0
+89/name = "Acid (1).png 89"
+89/texture = ExtResource( 20 )
+89/tex_offset = Vector2( 0, 0 )
+89/modulate = Color( 1, 1, 1, 1 )
+89/region = Rect2( 69, 0, 69, 69 )
+89/tile_mode = 0
+89/occluder_offset = Vector2( 0, 0 )
+89/navigation_offset = Vector2( 0, 0 )
+89/shape_offset = Vector2( 0, 0 )
+89/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+89/shape = SubResource( 54 )
+89/shape_one_way = false
+89/shape_one_way_margin = 1.0
+89/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 54 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+89/z_index = 0
