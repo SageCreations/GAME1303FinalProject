@@ -14,9 +14,9 @@ extents = Vector2( 30.5, 80.5 )
 extents = Vector2( 119.5, 141 )
 
 [node name="door_node" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="door" type="KinematicBody2D" parent="."]
-script = ExtResource( 4 )
 
 [node name="top" type="Sprite" parent="door"]
 position = Vector2( 0, -64 )
@@ -52,5 +52,5 @@ stream = ExtResource( 6 )
 pitch_scale = 0.9
 attenuation = 1.27456
 
-[connection signal="body_entered" from="door/Area2D" to="door" method="_on_Area2D_body_entered"]
-[connection signal="body_exited" from="door/Area2D" to="door" method="_on_Area2D_body_exited"]
+[connection signal="body_entered" from="door/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="door/Area2D" to="." method="_on_Area2D_body_exited"]
