@@ -16,7 +16,7 @@ onready var effects_anim = $AnimationPlayer
 
 var is_dead = false
 
-export var boss_health = 30
+export var boss_health = 50
 var max_boss_health
 
 var in_range = false
