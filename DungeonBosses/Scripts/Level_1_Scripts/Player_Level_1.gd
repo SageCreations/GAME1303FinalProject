@@ -53,6 +53,7 @@ export var coin_amount_upgrade = 10
 
 onready var boss = get_parent().get_node("boss")
 onready var level_music = get_parent().get_node("level_music")
+onready var boss_level_music = get_parent().get_node("music")
 
 
 func _ready():
@@ -140,6 +141,10 @@ func _physics_process(_delta):
 		if (level_music != null):
 			if (level_music.playing == true):
 				level_music.set_deferred("playing", false)
+				
+		if (boss_level_music != null):
+			if (boss_level_music.playing == true):
+				boss_level_music.set_deferred("playing", false)
 	
 	
 # function for shooting	
