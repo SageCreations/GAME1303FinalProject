@@ -25,7 +25,7 @@
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_4.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/idle/idle_3.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_0.png" type="Texture" id=25]
-[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/Run/Miniatur_WalkingRunning.wav" type="AudioStream" id=26]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/Run/Miniatur_Walking3.0.wav" type="AudioStream" id=26]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/idle/idle_4.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/hit/hit_2.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_3.png" type="Texture" id=29]
@@ -48,20 +48,20 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "run",
-"speed": 12.0
+"frames": [ ExtResource( 18 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "hit",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 35 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "hit",
-"speed": 7.0
+"frames": [ ExtResource( 25 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": false,
