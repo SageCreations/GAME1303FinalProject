@@ -30,13 +30,14 @@ margin_right = 71.0
 alignment = 1
 
 [node name="start_button" type="Button" parent="VBoxContainer"]
-margin_top = 427.0
-margin_right = 233.0
-margin_bottom = 469.0
+margin_top = 450.0
+margin_right = 142.0
+margin_bottom = 492.0
 custom_fonts/font = SubResource( 2 )
 text = "Start Game"
 
 [node name="boss_level" type="Button" parent="VBoxContainer"]
+visible = false
 margin_top = 473.0
 margin_right = 233.0
 margin_bottom = 515.0
@@ -44,23 +45,23 @@ custom_fonts/font = SubResource( 2 )
 text = "Debug (Boss_Level)"
 
 [node name="credits_button" type="Button" parent="VBoxContainer"]
-margin_top = 519.0
-margin_right = 233.0
-margin_bottom = 561.0
+margin_top = 496.0
+margin_right = 142.0
+margin_bottom = 538.0
 custom_fonts/font = SubResource( 2 )
 text = "Credits"
 
 [node name="controls_button" type="Button" parent="VBoxContainer"]
-margin_top = 565.0
-margin_right = 233.0
-margin_bottom = 607.0
+margin_top = 542.0
+margin_right = 142.0
+margin_bottom = 584.0
 custom_fonts/font = SubResource( 2 )
 text = "Controls"
 
 [node name="quit_button" type="Button" parent="VBoxContainer"]
-margin_top = 611.0
-margin_right = 233.0
-margin_bottom = 653.0
+margin_top = 588.0
+margin_right = 142.0
+margin_bottom = 630.0
 custom_fonts/font = SubResource( 2 )
 text = "Quit"
 
