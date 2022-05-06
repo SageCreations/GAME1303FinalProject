@@ -16,8 +16,10 @@ Proposal for GAME 1303
 <br>
 <br>
 
-## Elevator Pitch
+## Elevator Pitch (Changed Completely)
 - Players will need to adapt to different gameplay styles on the fly throughout their progress in the game. For example, the player will traverse a dungeon in a rougue hack n slash style of gameplay and then when they reach the final boss of the dungeon the fight become a turnbased rpg style. Another example would be the player travels through a gauntlet of enemies in a galaga style of gameplay and then the final boss would be similar to a mega man boss. Truly a game with multiple callbacks to various retro gameplay styles
+
+(1 level of the 3 originally planned were made due to time constraints)
 
 <br>
 <br>
@@ -30,6 +32,7 @@ Proposal for GAME 1303
 - anybody looking to kill time
 #### - Platform & System Requirements:
 - Windows Operating System for the game build
+- Web build version (if there is extra time to look into)
 - Godot Game Enigne for Development
 #### - Theme and Setting:
 - Each "Dugeon" can have its own style (discussed with team)
@@ -44,8 +47,8 @@ Proposal for GAME 1303
 - Programmer: Edward Cruz, placeholder, etc.
 - Level Design: Darren Zemanek
 - Sound Design: Pablo
-- Art: Colby Sturdy, Lewis Christie
-- QA: placeholder (probably anybody on the team when there is downtime)
+- Art: Lewis Christie
+- QA: Edward Cruz, Darren Zemanek, Pablo Garcia, Lewis Christie, and many others who were not part of the class.
 
 <br>
 <br>
@@ -58,7 +61,7 @@ Proposal for GAME 1303
 <br>
 <br>
 
-## Story
+## Story (scratched - had to remove due to time constraints on everyones schedules)
   - I would like to keep it as simple and vague as possible
   - since the plan is for 3 full levels with dugeon and boss in each, im thinking of having story beats sprinkled at certain sections where gameplay is at a minimum.
   #### Locations where story should be told:
@@ -71,7 +74,7 @@ Proposal for GAME 1303
 <br>
 <br>
 
-## Characters
+## Characters (scratched)
   - The Player
   - The player will have a companion that will explain things to the player (dont know what form it will take yet)
   - Each Boss will be considered a character since they will have dialouge lines
@@ -83,18 +86,19 @@ Proposal for GAME 1303
 ## Gameplay/Mechanics
   - PlayerController (needed for every gameplay style)
   - AI Controller (one specific for every boss and enemies)
-  - Object Specs (interactions, collsions, probably lots of if statements)
+  - Object Specs (interactions, collsions, etc.)
 
 <br>
 <br>
 
 ## Levels
-  - Tutorial Area / World Hub
+  - Tutorial Area / World Hub (scratched)
   - Level 1 / First Dungeon
     - Side scroller gameplay, player will have a shotgun 
-  - Level 2 / Second Dungeon
-  - Level 3 / Third Dungeon
-  - Anything else can decided at a later date.
+    - Boss room at the end of the level.
+  - Level 2 / Second Dungeon (scratched)
+  - Level 3 / Third Dungeon  (scratched)
+  - Anything else can decided at a later date. 
 
 <br>
 <br>
