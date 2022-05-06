@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Level_1_Scripts/win_scene.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Music/CongratsMusicGame.wav" type="AudioStream" id=2]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://fonts/NotoSansDisplay-VariableFont_wdth,wght.ttf"
@@ -32,23 +33,23 @@ margin_right = 71.0
 alignment = 1
 
 [node name="main_menu_button" type="Button" parent="VBoxContainer"]
-margin_top = 83.0
+margin_top = 323.0
 margin_right = 142.0
-margin_bottom = 125.0
+margin_bottom = 365.0
 custom_fonts/font = SubResource( 4 )
 text = "Main Menu"
 
 [node name="credits_button" type="Button" parent="VBoxContainer"]
-margin_top = 129.0
+margin_top = 369.0
 margin_right = 142.0
-margin_bottom = 171.0
+margin_bottom = 411.0
 custom_fonts/font = SubResource( 4 )
 text = "Credits"
 
 [node name="quit_button" type="Button" parent="VBoxContainer"]
-margin_top = 175.0
+margin_top = 415.0
 margin_right = 142.0
-margin_bottom = 217.0
+margin_bottom = 457.0
 custom_fonts/font = SubResource( 4 )
 text = "Quit"
 
@@ -60,8 +61,8 @@ margin_top = -200.0
 alignment = 1
 
 [node name="title_label" type="Label" parent="HBoxContainer"]
-margin_left = 265.0
-margin_right = 759.0
+margin_left = 713.0
+margin_right = 1207.0
 margin_bottom = 213.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
@@ -72,6 +73,10 @@ and
 Thank You For Playing"
 align = 1
 valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/main_menu_button" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/credits_button" to="." method="_on_credits_button_pressed"]
