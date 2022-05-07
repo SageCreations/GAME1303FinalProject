@@ -8,13 +8,13 @@ Proposal for GAME 1303
 <br>
 
 # Play The Game in Your browser
-<a>https://sagecreations.itch.io/game1303finalproject<a/>
+<a href="https://sagecreations.itch.io/game1303finalproject">Web Browser Version</a>
 
 <br>
 <br>
 
 # Download The Game at This Link (Windows Only)
-https://sagecreations.itch.io/game1303finalprojectwin
+<a href="https://sagecreations.itch.io/game1303finalprojectwin">Windows Build</a>
 
 <br>
 <br>
