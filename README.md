@@ -7,9 +7,18 @@ Proposal for GAME 1303
 <br>
 <br>
 
-
+# Play The Game in Your browser
 https://itch.io/embed-upload/5742414?color=333333
 
+<br>
+<br>
+
+# Download The Game at This Link (Windows Only)
+https://sagecreations.itch.io/game1303finalprojectwin
+
+<br>
+<br>
+<br>
 
 # Game Overview
 <br>
