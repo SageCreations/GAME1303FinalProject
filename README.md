@@ -8,7 +8,7 @@ Proposal for GAME 1303
 <br>
 
 # Play The Game in Your browser
-https://itch.io/embed-upload/5742414?color=333333
+<a>https://sagecreations.itch.io/game1303finalproject<a/>
 
 <br>
 <br>
