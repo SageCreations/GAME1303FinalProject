@@ -8,7 +8,7 @@ Proposal for GAME 1303
 <br>
 
 
-<iframe frameborder="0" src="https://itch.io/embed-upload/5742414?color=333333" allowfullscreen="" width="1920" height="1100"><a href="https://sagecreations.itch.io/game1303finalproject">Play GAME1303FinalProject(Web) on itch.io</a></iframe>
+https://itch.io/embed-upload/5742414?color=333333
 
 
 # Game Overview
