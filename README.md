@@ -1,9 +1,3 @@
-# The Final Project 
-Proposal for GAME 1303
-<br>
-<br>
-<br>
-<br>
 <br>
 <br>
 
@@ -17,6 +11,17 @@ Proposal for GAME 1303
 <a href="https://sagecreations.itch.io/game1303finalprojectwin">Windows Build</a>
 
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+ 
+# Proposal for GAME 1303
 <br>
 <br>
 
