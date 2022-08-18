@@ -41,7 +41,7 @@ margin_top = -193.5
 margin_bottom = 193.5
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_right = 1920.0
+margin_right = 1280.0
 margin_bottom = 504.0
 custom_fonts/font = SubResource( 4 )
 text = "Movement: 

@@ -33,23 +33,23 @@ margin_right = 71.0
 alignment = 1
 
 [node name="main_menu_button" type="Button" parent="VBoxContainer"]
-margin_top = 323.0
+margin_top = 143.0
 margin_right = 142.0
-margin_bottom = 365.0
+margin_bottom = 185.0
 custom_fonts/font = SubResource( 4 )
 text = "Main Menu"
 
 [node name="credits_button" type="Button" parent="VBoxContainer"]
-margin_top = 369.0
+margin_top = 189.0
 margin_right = 142.0
-margin_bottom = 411.0
+margin_bottom = 231.0
 custom_fonts/font = SubResource( 4 )
 text = "Credits"
 
 [node name="quit_button" type="Button" parent="VBoxContainer"]
-margin_top = 415.0
+margin_top = 235.0
 margin_right = 142.0
-margin_bottom = 457.0
+margin_bottom = 277.0
 custom_fonts/font = SubResource( 4 )
 text = "Quit"
 
@@ -61,8 +61,8 @@ margin_top = -200.0
 alignment = 1
 
 [node name="title_label" type="Label" parent="HBoxContainer"]
-margin_left = 713.0
-margin_right = 1207.0
+margin_left = 393.0
+margin_right = 887.0
 margin_bottom = 213.0
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_offset_x = 3
