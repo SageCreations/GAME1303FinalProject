@@ -19,6 +19,6 @@ position = Vector2( 179, 292 )
 
 [node name="load_next_scene" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2307, 545 )
-scale = Vector2( 1.8, 1.32 )
+scale = Vector2( 0.92, 1.32 )
 next_level = ExtResource( 4 )
 input_needed = true
