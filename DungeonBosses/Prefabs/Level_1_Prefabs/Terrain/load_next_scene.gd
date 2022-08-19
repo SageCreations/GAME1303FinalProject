@@ -1,17 +1,31 @@
 extends Node2D
 
+# drop tab to manually choose what level the collider will send to
 export(PackedScene) var next_level
 
+# checkbox on whether the player needs to use input to load next level
 export(bool) var input_needed = false
 
+# boolean to make sure player is still overlapping the area2D collider
+var input_valid : bool = false;
+
+#listens for input events
+func _input(event):
+	if (Input.is_action_just_pressed("side_scroller_door")):
+		if (input_valid):
+			get_tree().change_scene_to(next_level)
+
+
 func _on_Area2D_body_entered(body):
+	# if body that belongs to the player enters
 	if (body.get_name() == "Player"):
-		print_debug("player has entered 'load next area' box")
+		# check for whether input is needed or not
 		if (input_needed == true):
-			print_debug("input is needed!")
-			if(Input.is_action_just_pressed("hub_world_go_into")):
-				print_debug("Correct button was pressed!!!")
-				# TODO: this part isnt executing, maybe need a type of listener function (research)
-				get_tree().change_scene_to(next_level)
+			input_valid = true;
 		else:
 			get_tree().change_scene_to(next_level)
+
+# if input was needed but the body leaves, set the bool to false
+func _on_Area2D_body_exited(body):
+	if (body.get_name() == "Player"):
+		input_valid = false
