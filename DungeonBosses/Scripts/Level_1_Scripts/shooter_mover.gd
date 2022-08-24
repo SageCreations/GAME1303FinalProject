@@ -30,23 +30,27 @@ export var max_shoot_time = 2.0
 var is_dead = false
 
 onready var player = get_parent().get_parent().get_parent().get_node("Player")
-#onready var player = get_parent().get_tree().get_root().get_node("Player")
 
 onready var start_x_pos = position.x
 
 func _process(delta):
 	if (dir == 1 && position.x < start_x_pos + distance_from_origin):
 		velocity.x = move_speed * dir
-		$AnimatedSprite.flip_h = false
+		$bottom_half.flip_h = true
 	elif(dir == -1 && position.x > start_x_pos - distance_from_origin):
 		velocity.x = move_speed * dir
-		$AnimatedSprite.flip_h = true
+		$bottom_half.flip_h = false
 	else:
 		dir = dir * -1
 		$RayCast2D.position.x *= -1
 		
-	
-	$AnimatedSprite.play("walk")
+	if (shoot_dir == 1 && $top_half.flip_h == false):
+		$top_half.flip_h = true
+		
+	if (shoot_dir == -1 && $top_half.flip_h == true):
+		$top_half.flip_h = false
+	#$top_half.play("walk")
+	#$bottom_half.play("walk")
 	velocity.y += gravity
 	
 	move_and_slide(Vector2(velocity.x, velocity.y), Vector2(0, -1))
@@ -60,11 +64,12 @@ func _process(delta):
 		$RayCast2D.position.x *= -1
 		
 	if (in_range):
-			#problem might be from this block here
 		if (player.position.x < get_parent().position.x):
 			shoot_dir = -1
+			
 		else:
 			shoot_dir = 1
+			
 				
 		if (shoot_allowed && !is_dead):
 			shoot_allowed = false

@@ -11,7 +11,7 @@
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Hazards/hole.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/collectables/health_box.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/checkpoint.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Prefabs/Level_1_Prefabs/Enemies/shooter.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Prefabs/Level_1_Prefabs/Enemies/shooter_mover.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Terrain/phasable_platform.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Terrain/horizontal_phasable_platform.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Prefabs/Level_1_Prefabs/Terrain/vertical_phasable_platform.tscn" type="PackedScene" id=17]
@@ -134,8 +134,8 @@ stream = ExtResource( 7 )
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="shooter_type" parent="enemies" instance=ExtResource( 12 )]
-position = Vector2( 1044, 268 )
+[node name="shooter_mover_node" parent="enemies" instance=ExtResource( 12 )]
+position = Vector2( 1223, 224 )
 
 [node name="Collectables" type="Node2D" parent="."]
 

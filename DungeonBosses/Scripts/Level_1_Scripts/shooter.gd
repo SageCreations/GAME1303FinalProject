@@ -14,19 +14,25 @@ export var min_shoot_time = 1.0
 export var max_shoot_time = 2.0
 
 var is_dead = false
+var facing_right = false
 
 onready var player = get_parent().get_parent().get_node("Player")
 
 func _process(delta):
 	if (in_range):
-			
 		if (player.position.x < position.x):
 			shoot_dir = -1
 		else:
 			shoot_dir = 1
-				
+
 		if (shoot_allowed && !is_dead):
 			shoot(shoot_dir)
+
+		if (facing_right == false && shoot_dir > 0):
+			flip()
+		
+		if (facing_right == true && shoot_dir < 0):
+			flip()
 
 
 
@@ -36,6 +42,8 @@ func shoot(dir):
 	randomize()
 	var time = rand_range(min_shoot_time, max_shoot_time)
 	$shooter/shoot_ready.start(time)
+	$shooter/anim_timer.start()
+	$shooter/AnimatedSprite.play("shoot")
 	if (dir > 0):
 		bullet.setup(Vector2(position.x + bullet_spawn_x, position.y + bullet_spawn_y), rotation, dir)
 	else:
@@ -43,11 +51,15 @@ func shoot(dir):
 	get_parent().add_child(bullet)
 	$shooter/shoot_sound.play()
 	
-		
+	
+func flip():
+	facing_right = !facing_right
+	$shooter/AnimatedSprite.flip_h = !$shooter/AnimatedSprite.flip_h
+	
+
 
 func _on_shoot_ready_timeout():
 	shoot_allowed = true
-
 
 
 
@@ -76,3 +88,7 @@ func _on_VisibilityNotifier2D_screen_exited():
 	in_range = false
 	print("in_range was set to false")
 
+
+
+func _on_anim_timer_timeout():
+	$shooter/AnimatedSprite.play("idle")
