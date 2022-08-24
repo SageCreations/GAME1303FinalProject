@@ -5,7 +5,8 @@ var start_pos
 export (int) var distance = 300
 
 func _ready():
-	pass
+	if (speed < 0):
+		flip()
 
 # dir should be 1(right) or -1(left)
 func setup(pos, rot, dir):
@@ -14,6 +15,8 @@ func setup(pos, rot, dir):
 	speed = dir * speed
 	start_pos = position.x
 
+func flip():
+	$Sprite.flip_h = !$Sprite.flip_h
 
 #position.x > start_pos-distance
 func _physics_process(_delta):
