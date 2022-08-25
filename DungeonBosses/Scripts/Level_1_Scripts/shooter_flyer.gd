@@ -30,6 +30,7 @@ export var min_shoot_time = 1.0
 export var max_shoot_time = 2.0
 
 var is_dead = false
+var facing_left = true
 
 onready var player = get_parent().get_parent().get_parent().get_node("Player")
 
@@ -52,6 +53,13 @@ func _process(delta):
 			
 	move_and_slide(Vector2(0, velocity.y), Vector2(0, dir))
 	
+	if (shoot_dir == 1 && facing_left == true):
+		$Sprite.flip_h = true
+		facing_left = false
+		
+	if (shoot_dir == -1 && facing_left == false):
+		$Sprite.flip_h = false
+		facing_left = true
 	
 	if (in_range):
 		if (player.position.x < get_parent().position.x):

@@ -18,17 +18,19 @@ onready var start_x_pos = $mover.position.x
 func _process(delta):
 	if (dir == 1 && $mover.position.x < start_x_pos + distance_from_origin):
 		velocity.x = move_speed * dir
-		$mover/AnimatedSprite.flip_h = false
+		$mover/top_half.flip_h = true
+		$mover/bottom_half.flip_h = true
 	elif(dir == -1 && $mover.position.x > start_x_pos - distance_from_origin):
 		velocity.x = move_speed * dir
-		$mover/AnimatedSprite.flip_h = true
+		$mover/top_half.flip_h = false
+		$mover/bottom_half.flip_h = false
 	else:
 		dir = dir * -1
 		$mover/RayCast2D.position.x *= -1
 		
 	
 	
-	$mover/AnimatedSprite.play("walk")
+	#$mover/top_half.play("walk")
 	velocity.y += gravity
 	
 	$mover.move_and_slide(Vector2(velocity.x, velocity.y), Vector2(0, -1))

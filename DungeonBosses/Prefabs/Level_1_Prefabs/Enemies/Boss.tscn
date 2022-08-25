@@ -1,74 +1,96 @@
-[gd_scene load_steps=49 format=2]
+[gd_scene load_steps=71 format=2]
 
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/idle/idle_0.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_2.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_4.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_6.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_7.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_0.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_3.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_5.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/attack/attack_8.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/hit/hit_1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun6.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun36.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun33.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun34.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun35.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun53.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun38.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun40.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun42.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun51.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun14.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_0.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_3.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_1.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_4.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_5.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/hit/hit_0.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun12.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun28.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_1.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_3.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_2.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_4.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/idle/idle_3.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_0.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun7.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun29.png" type="Texture" id=25]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/Run/Miniatur_Walking3.0.wav" type="AudioStream" id=26]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/idle/idle_4.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/hit/hit_2.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_3.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_6.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_5.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_1.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_7.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun8.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun10.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun31.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun32.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun30.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun11.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun13.png" type="Texture" id=33]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/SwingingAxeTwoSecondLoop/Axe_Swing2.0.wav" type="AudioStream" id=34]
 [ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_0.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/run/run_4.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun9.png" type="Texture" id=36]
 [ext_resource path="res://Scripts/Level_1_Scripts/Boss.gd" type="Script" id=37]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/HardAndHeavyJump/103996__rutgermuller__jumping-on-wooden-plate-in-hall.wav" type="AudioStream" id=38]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/BullTauntReadyToCharge/Minataur_Huffing.wav" type="AudioStream" id=39]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Enemy/PlinkSoundDeath/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=40]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun1.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun3.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun4.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun5.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun2.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun16.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun15.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun54.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun55.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun45.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun49.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun50.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun41.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun46.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun44.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun52.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun56.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun37.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun43.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun47.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun39.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun48.png" type="Texture" id=62]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 24 ), ExtResource( 27 ), ExtResource( 24 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 41 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 1 ), ExtResource( 24 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "idle",
-"speed": 5.0
+"speed": 7.0
 }, {
-"frames": [ ExtResource( 18 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 18 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 18 ), ExtResource( 33 ), ExtResource( 11 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 11 ), ExtResource( 33 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 28 ) ],
 "loop": false,
 "name": "hit",
-"speed": 7.0
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 25 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "run",
+"speed": 12.0
 }, {
 "frames": [ ExtResource( 35 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 35 ) ],
 "loop": false,
 "name": "taunt",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ), ExtResource( 32 ), ExtResource( 19 ), ExtResource( 29 ), ExtResource( 36 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 33 ) ],
-"loop": true,
-"name": "run",
-"speed": 12.0
-}, {
 "frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": false,
 "name": "death",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 58 ), ExtResource( 7 ), ExtResource( 61 ), ExtResource( 8 ), ExtResource( 53 ), ExtResource( 9 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 50 ), ExtResource( 54 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 10 ), ExtResource( 56 ), ExtResource( 6 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 57 ) ],
 "loop": true,
 "name": "attack",
 "speed": 12.0
@@ -82,11 +104,11 @@ radius = 11.0
 height = 0.0
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 12.0
-height = 16.0
+radius = 19.0
+height = 102.0
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 72, 15.5 )
+extents = Vector2( 188.5, 49 )
 
 [sub_resource type="Animation" id=36]
 length = 0.001
@@ -138,12 +160,14 @@ tracks/0/keys = {
 }
 
 [node name="boss" type="KinematicBody2D"]
-scale = Vector2( 4, 4 )
 script = ExtResource( 37 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "taunt"
+frame = 10
+playing = true
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false
@@ -162,6 +186,7 @@ one_way_collision_margin = 0.0
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 3 )
 shape = SubResource( 2 )
 one_way_collision = true
 one_way_collision_margin = 0.0
@@ -172,7 +197,7 @@ one_shot = true
 [node name="attack_range" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-position = Vector2( 72, -0.5 )
+position = Vector2( 188.5, 12 )
 shape = SubResource( 3 )
 one_way_collision = true
 one_way_collision_margin = 0.0

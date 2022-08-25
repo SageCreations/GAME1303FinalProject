@@ -21,8 +21,14 @@ func _ready():
 	
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	y_vel += fire_ball_gravity
+	
+	#if(get_parent() != null):
+		#if (y_vel > 0 && $fire_ball/AnimatedSprite.flip_v == false):
+		#	$fire_ball/AnimatedSprite.flip_v = true
+		#if (y_vel < 0 && $fire_ball/AnimatedSprite.flip_v == true):
+		#	$fire_ball/AnimatedSprite.flip_v = false
 	
 	if (y_vel > max_fall_speed):
 		y_vel = max_fall_speed

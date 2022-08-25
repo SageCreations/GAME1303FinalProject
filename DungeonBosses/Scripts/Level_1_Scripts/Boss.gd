@@ -152,6 +152,7 @@ func _damage(value):
 		if($effects_timer.is_stopped()):
 			$effects_timer.start()
 			effects_anim.play("hit")
+			$AnimatedSprite.play("hit")
 		$hit.play()
 	
 	

@@ -1551,6 +1551,7 @@ position = Vector2( 823, 635 )
 [node name="Garbage_Collection" type="Node" parent="."]
 
 [node name="delete_extras_node" parent="Garbage_Collection" instance=ExtResource( 55 )]
+visible = false
 position = Vector2( -966, 1725 )
 scale = Vector2( 5, 1 )
 
