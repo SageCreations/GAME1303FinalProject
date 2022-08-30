@@ -168,7 +168,7 @@ position = Vector2( 2152, -298 )
 [node name="Hazards" type="Node2D" parent="."]
 
 [node name="spikes" parent="Hazards" instance=ExtResource( 20 )]
-position = Vector2( 2363, 205 )
+position = Vector2( 2366, 224 )
 rotation = 3.14159
 
 [node name="falling_spike_spawner_node" parent="Hazards" instance=ExtResource( 21 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun6.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun36.png" type="Texture" id=2]
@@ -11,18 +11,18 @@
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun42.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun51.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun14.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_0.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_3.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_4.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/dead/dead_5.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun18.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun19.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun17.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun21.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun26.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun27.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun12.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun28.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_1.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_3.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_2.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_4.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt1.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt3.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt4.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt7.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun7.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/2-NarutoRun-Boss Running/IdleHitDeathAttackRun29.png" type="Texture" id=25]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/Run/Miniatur_Walking3.0.wav" type="AudioStream" id=26]
@@ -34,11 +34,11 @@
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun11.png" type="Texture" id=32]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun13.png" type="Texture" id=33]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/SwingingAxeTwoSecondLoop/Axe_Swing2.0.wav" type="AudioStream" id=34]
-[ext_resource path="res://Sprites/Level_1_Sprites/Enemies/boss/taunt/taunt_0.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt5.png" type="Texture" id=35]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/4-BossGoingOOOF-Getting Hit/IdleHitDeathAttackRun9.png" type="Texture" id=36]
 [ext_resource path="res://Scripts/Level_1_Scripts/Boss.gd" type="Script" id=37]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/HardAndHeavyJump/103996__rutgermuller__jumping-on-wooden-plate-in-hall.wav" type="AudioStream" id=38]
-[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/BullTauntReadyToCharge/Minataur_Huffing.wav" type="AudioStream" id=39]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt8.png" type="Texture" id=39]
 [ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/Enemy/PlinkSoundDeath/Plink-sounds-headshot-or-armor-break-20220331-163453.wav" type="AudioStream" id=40]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun1.png" type="Texture" id=41]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/1-Idle/IdleHitDeathAttackRun3.png" type="Texture" id=42]
@@ -62,6 +62,20 @@
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun47.png" type="Texture" id=60]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun39.png" type="Texture" id=61]
 [ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/3-GurranLaggan-ATTACK/IdleHitDeathAttackRun48.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt2.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt9.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt6.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt11.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt14.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt10.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt12.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Taunt/Taunt13.png" type="Texture" id=70]
+[ext_resource path="res://Audio/Level_1_Sounds/SoundForFinalGame/DABOSS/Taunt_VoiceTwo_20220826-002142.wav" type="AudioStream" id=71]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun25.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun23.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun20.png" type="Texture" id=74]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun22.png" type="Texture" id=75]
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Final Boss Version 3/5-RIPDude- Death/IdleHitDeathAttackRun24.png" type="Texture" id=76]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -70,25 +84,25 @@ animations = [ {
 "name": "idle",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 36 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 18 ), ExtResource( 33 ), ExtResource( 11 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 11 ), ExtResource( 33 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 28 ) ],
-"loop": false,
-"name": "hit",
-"speed": 24.0
+"frames": [ ExtResource( 20 ), ExtResource( 63 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 35 ), ExtResource( 65 ), ExtResource( 23 ), ExtResource( 39 ), ExtResource( 64 ), ExtResource( 68 ), ExtResource( 66 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "taunt",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 19 ), ExtResource( 25 ), ExtResource( 31 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
 "name": "run",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 22 ), ExtResource( 21 ), ExtResource( 23 ), ExtResource( 20 ), ExtResource( 35 ) ],
+"frames": [ ExtResource( 36 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 18 ), ExtResource( 33 ), ExtResource( 11 ), ExtResource( 47 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 11 ), ExtResource( 33 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 28 ) ],
 "loop": false,
-"name": "taunt",
-"speed": 5.0
+"name": "hit",
+"speed": 24.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 74 ), ExtResource( 15 ), ExtResource( 75 ), ExtResource( 73 ), ExtResource( 76 ), ExtResource( 72 ), ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": false,
 "name": "death",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 2 ), ExtResource( 58 ), ExtResource( 7 ), ExtResource( 61 ), ExtResource( 8 ), ExtResource( 53 ), ExtResource( 9 ), ExtResource( 59 ), ExtResource( 55 ), ExtResource( 50 ), ExtResource( 54 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 10 ), ExtResource( 56 ), ExtResource( 6 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 57 ) ],
 "loop": true,
@@ -165,7 +179,7 @@ script = ExtResource( 37 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.8, 0.8 )
 frames = SubResource( 1 )
-animation = "taunt"
+animation = "death"
 frame = 10
 playing = true
 
@@ -231,9 +245,8 @@ pitch_scale = 2.0
 attenuation = 0.732048
 
 [node name="taunt" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 39 )
-pitch_scale = 1.5
-attenuation = 0.31864
+stream = ExtResource( 71 )
+pitch_scale = 1.2
 
 [node name="hit" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 40 )
