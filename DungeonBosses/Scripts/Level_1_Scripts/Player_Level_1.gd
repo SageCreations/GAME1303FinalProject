@@ -4,11 +4,11 @@ extends KinematicBody2D
 # code mostly from the video tutorial above.
 
 signal hit
-signal health_updated(health)
+#signal health_updated(health)
 signal killed()
 
 export (int) var start_health = 3
-onready var health = start_health
+#onready var health = start_health
 
 # some consts made public so they can be edited in the editor
 export var move_speed = 500
@@ -47,7 +47,7 @@ onready var effects_anim = $effects_animation
 
 var is_dead = false
 
-var amount_of_coins = 0
+#var main_data.GetCurrency() = 0
 var coin_counter = 0
 export var coin_amount_upgrade = 10
 
@@ -60,8 +60,8 @@ func _ready():
 	game_over_label.visible = false
 	continue_button.visible = false
 	quit_button.visible = false
-	health_label.text = "Health: " + str(health)
-	coin_label.text = "Coins: " + str(amount_of_coins)
+	health_label.text = "Health: " + str(main_data.GetHealth())
+	coin_label.text = "Coins: " + str(main_data.GetCurrency())
 	
 	
 
@@ -176,8 +176,9 @@ func _on_shot_timer_timeout():
 	
 func heal(amount):
 	if (invuln_timer.is_stopped()):
-		health += amount
-		health_label.text = "Health: " + str(health)
+		main_data.AddHealth(amount)
+		#health += amount
+		health_label.text = "Health: " + str(main_data.GetHealth())
 		invuln_timer.start()
 		effects_anim.play("heal")
 		effects_anim.queue("invuln")
@@ -185,9 +186,9 @@ func heal(amount):
 func damage(amount):
 	if (invuln_timer.is_stopped()):
 		invuln_timer.start()
-		health -= amount
-		health_label.text = "Health: " + str(health)
-		if (health <= 0):
+		main_data.RemoveHealth(amount)
+		health_label.text = "Health: " + str(main_data.GetHealth())
+		if (main_data.GetHealth() <= 0):
 			kill()
 		$hurt.play()
 		effects_anim.play("damage")
@@ -227,6 +228,7 @@ func quit():
 	get_tree().quit()
 
 func start_over():
+	main_data.SetHealth(start_health)
 	get_tree().reload_current_scene()
 	
 
@@ -256,7 +258,7 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "lava"):
 		print("player fell in lava")
-		if (health > 0):
+		if (main_data.GetHealth() > 0):
 			position = spawn_point
 		damage(1)
 	elif (body.get_name() == "falling_spike"):
@@ -268,12 +270,12 @@ func _on_Area2D_body_entered(body):
 		damage(1)
 	elif (body.get_name() == "hole"):
 		print("player fell in hole")
-		if (health > 0):
+		if (main_data.GetHealth() > 0):
 			position = spawn_point
 		damage(1)
 	elif (body.get_name() == "coin"):
 		# update coin counter
-		amount_of_coins += 1
+		main_data.AddCurrency(1)
 		coin_counter += 1
 		
 		if (coin_counter == coin_amount_upgrade):
@@ -281,8 +283,8 @@ func _on_Area2D_body_entered(body):
 			coin_counter = 0
 			
 		
-		coin_label.text = "Coins: " + str(amount_of_coins)
-		print("player picked up a coin")
+		coin_label.text = "Coins: " + str(main_data.GetCurrency())
+		print_debug("player picked up a coin")
 		
 	elif (body.get_name() == "health_box"):
 		print("player picked up a health_box")
