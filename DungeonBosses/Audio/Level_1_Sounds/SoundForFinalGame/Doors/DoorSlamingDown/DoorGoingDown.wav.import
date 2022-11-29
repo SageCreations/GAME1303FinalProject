@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/DoorGoingDown.wav-53cb5527565ac6399d6d847d58c240ed.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Doors/DoorSlamingDown/DoorGoingDown.wav"
+dest_files=[ "res://.import/DoorGoingDown.wav-53cb5527565ac6399d6d847d58c240ed.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

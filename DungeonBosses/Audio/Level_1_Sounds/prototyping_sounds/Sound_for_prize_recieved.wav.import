@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sound_for_prize_recieved.wav-1fca61a0513379dfab411c8b2efd2601.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/prototyping_sounds/Sound_for_prize_recieved.wav"
+dest_files=[ "res://.import/Sound_for_prize_recieved.wav-1fca61a0513379dfab411c8b2efd2601.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

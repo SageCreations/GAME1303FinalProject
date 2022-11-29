@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Level_1_Sprites_REDO/Metal Platform/Sprite-0008.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 34, 10 )
+
+[node name="phasable_platform" type="KinematicBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+one_way_collision = true

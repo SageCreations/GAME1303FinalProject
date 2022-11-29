@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Shotgun_semi_aut0_20220331-155854.wav-dbe1ac3c0c84932d00c920f84b6c2b6c.sample"
+
+[deps]
+
+source_file="res://Audio/Level_1_Sounds/SoundForFinalGame/Player Sounds/Shoot/Shotgun_semi_aut0_20220331-155854.wav"
+dest_files=[ "res://.import/Shotgun_semi_aut0_20220331-155854.wav-dbe1ac3c0c84932d00c920f84b6c2b6c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
